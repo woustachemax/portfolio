@@ -23,6 +23,12 @@ export default function ChangingTitle() {
     return () => clearInterval(interval)
   }, [])
 
-  return <p className="text-2xl text-blue-300 mb-8 h-8">{titles[titleIndex]} | Exploring the Digital Universe</p>
+  return (
+    <div className="min-h-[4rem] md:min-h-[2rem] flex items-center justify-center px-4">
+      <p className="text-xl md:text-2xl text-blue-300 text-center">
+        {titles[titleIndex]} | <span className="block md:inline">Exploring the Digital Universe</span>
+      </p>
+    </div>
+  )
 }
 
