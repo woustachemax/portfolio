@@ -8,15 +8,15 @@ import ChangingTitle from "./components/ChangingTitle"
 
 export default function Home() {
   return (
-    <div className="space-y-32 px-4 py-8">
+    <div className="space-y-16 md:space-y-32 px-4 py-8">
       <section id="hero" className="flex flex-col items-center justify-center min-h-screen text-center">
-        <h1 className="text-6xl font-bold text-purple-400 mb-6 animate-pulse">Siddharth Thakkar</h1>
+        <h1 className="text-4xl md:text-6xl font-bold text-purple-400 mb-6 animate-pulse px-2">Siddharth Thakkar</h1>
         <ChangingTitle />
-        <p className="text-xl text-gray-300 max-w-2xl mb-12">
+        <p className="text-lg md:text-xl text-gray-300 max-w-2xl mb-8 mt-4 px-4">
           Embarking on a cosmic journey through web development, creating immersive digital experiences that transcend
           boundaries.
         </p>
-        <Button asChild size="lg" className="bg-purple-600 hover:bg-purple-700 text-white animate-bounce">
+        <Button asChild size="lg" className="bg-purple-600 hover:bg-purple-700 text-white animate-bounce mt-4">
           <a href="#contact">Initiate Contact</a>
         </Button>
       </section>
