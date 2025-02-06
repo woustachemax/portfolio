@@ -13,7 +13,7 @@ export const metadata = {
     {
       rel: "icon",
       type: "image/svg+xml",
-      url: "/favicon.svg",
+      url: "./favicon.svg",
     },
   ],
 }
