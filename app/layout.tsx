@@ -7,7 +7,7 @@ import type React from "react"
 const inter = Inter({ subsets: ["latin"] })
 
 export const metadata = {
-  title: "Siddharth Thakkar - Galactic Portfolio",
+  title: "Siddharth Thakkar",
   description: "Software Developer | MERN Stack | 3D Web Development",
   icons: [
     {
