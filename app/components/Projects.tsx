@@ -2,26 +2,36 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/com
 
 const projectsData = [
   {
-    title: "Plinko Gambling Game Simulation",
-    date: "Jan 2025",
-    description: "A physics-based gambling game inspired by Plinko, simulating the thrill of cosmic chance.",
-    details: [
-      "Engineered a React-based frontend using Canvas API for smooth particle animations",
-      "Developed a Node.js backend for secure outcome calculations and server-side validation",
-    ],
-    skills: ["JavaScript", "React", "Node.js", "Canvas API"],
-  },
-  {
-    title: "Quantum Trading Algorithm",
-    date: "Nov 2024 - Dec 2024",
-    description: "A high-frequency trading algorithm that operates at the speed of light.",
-    details: [
-      "Constructed an Express-based HTTP server for lightning-fast user operations",
-      "Implemented quantum-inspired bid/ask matching for market and limit orders",
-      "Achieved sub-millisecond processing for interstellar high-throughput trading",
-    ],
-    skills: ["Node.js", "Express", "JavaScript", "Quantum Algorithm Design"],
-  },
+  title: "Watchman | Uptime Monitoring App",
+  date: "May 2025",
+  association: "Personal Project",
+  description:
+    "Developed a full-stack uptime monitoring application with alert functionality, secure user authentication, and efficient data handling across multiple apps using Turborepo.",
+  details: [
+    "Implemented secure user authentication with Clerk for protected routes and data privacy",
+    "Built modular frontend, backend, hub, and validator apps using Turborepo for efficient development",
+    "Used Prisma ORM with PostgreSQL for robust uptime tick and validator data storage",
+    "Designed a responsive monitoring dashboard using Next.js and Tailwind CSS",
+  ],
+  skills: ["Next.js", "Express.js", "Prisma", "PostgreSQL", "Tailwind CSS", "Bun", "Turborepo", "Authentication"],
+  link: "https://github.com/woustachemax/watchman"
+},
+{
+  title: "Sinkronize | Real-Time Collaboration Platform",
+  date: "March 2025 - April 2025",
+  association: "Personal Project",
+  description:
+    "Built a real-time collaboration platform enabling over 50 users to work on shared projects and communicate instantly, with secure backend and responsive design.",
+  details: [
+    "Developed real-time chat functionality using Socket.io for seamless user communication",
+    "Engineered backend with Express, Prisma, and bcrypt-based authentication for data security",
+    "Designed a responsive, cross-platform UI using React and Tailwind CSS",
+    "Optimized backend logic and frontend responsiveness for scalability and speed",
+  ],
+  skills: ["Next.js", "Express.js", "PostgreSQL", "Prisma", "Tailwind CSS", "Socket.io", "Authentication"],
+  link: "https://github.com/woustachemax/sinkronize"
+}
+
   {
     title: "Selling on Amazon | Database Design and Implementation",
     date: "Sep 2024 - Dec 2024",
@@ -35,33 +45,6 @@ const projectsData = [
       "Enabled data-driven decision-making with real-time insights",
     ],
     skills: ["SQL", "Databases", "Database Design", "E-Commerce"],
-  },
-  {
-    title: "Audify (Music SaaS Platform)",
-    date: "Sep 2024 - Oct 2024",
-    description: "Built a full-stack music streaming platform with voting system.",
-    details: [
-      "Built the backend using Prisma and PostgreSQL",
-      "Implemented authentication with NextAuth",
-      "Developed RESTful API endpoints",
-      "Used Next.js for server-side rendering",
-      "Integrated YouTube API",
-      "Designed the frontend UI using Tailwind CSS",
-      "Deployed the application on Vercel",
-    ],
-    skills: ["PostgreSQL", "Next.js", "Tailwind CSS", "React"],
-  },
-  {
-    title: "SidChat (Video Call App)",
-    date: "May 2024 - Jun 2024",
-    description: "Developed a real-time video communication platform combining features of Google Meet and Omegle.",
-    details: [
-      "Integrated WebRTC for video/audio communication",
-      "Created a dynamic user matchmaking system with Socket.io",
-      "Built the frontend using React",
-      "Developed a signaling server with Node.js and Socket.io",
-    ],
-    skills: ["WebRTC", "React", "Node.js", "Socket.io"],
   },
   {
     title: "Tuition Notes Application (TNA)",
