@@ -30,8 +30,7 @@ const projectsData = [
   ],
   skills: ["Next.js", "Express.js", "PostgreSQL", "Prisma", "Tailwind CSS", "Socket.io", "Authentication"],
   link: "https://github.com/woustachemax/sinkronize"
-}
-
+},
   {
     title: "Selling on Amazon | Database Design and Implementation",
     date: "Sep 2024 - Dec 2024",
