@@ -1,4 +1,5 @@
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
+import { Github } from 'lucide-react';
 
 const projectsData = [
   {
@@ -30,6 +31,34 @@ const projectsData = [
   ],
   skills: ["Next.js", "Express.js", "PostgreSQL", "Prisma", "Tailwind CSS", "Socket.io", "Authentication"],
   link: "https://github.com/woustachemax/sinkronize"
+},
+{
+  title: "Learning Path Generator MVP",
+  date: "March 2025",
+  association: "Personal Project",
+  description:
+    "Built a full-stack learning path generation MVP integrating GPT-4o via Palantir Foundry’s AIP Logic, with secure authentication and a polished UI.",
+  details: [
+    "Created an AIP Logic function in Palantir Foundry to interact with GPT-4o for generating structured learning paths based on user goals",
+    "Built a React frontend with Vite, styled using Tailwind CSS, and enabled navigation via React Router",
+    "Implemented authentication and input validation using JWT and Zod respectively",
+    "Developed a backend using Hono running on Cloudflare Workers, with Prisma ORM for database interaction",
+    "Configured CORS and default route redirection to ensure smooth frontend-backend communication",
+  ],
+  skills: [
+    "React",
+    "Vite",
+    "Tailwind CSS",
+    "Hono",
+    "Cloudflare Workers",
+    "Prisma",
+    "Palantir Foundry",
+    "AIP Logic",
+    "OpenAI GPT-4o",
+    "JWT",
+    "Zod"
+  ],
+  link: "https://github.com/woustachemax/aip-app"
 },
   {
     title: "Selling on Amazon | Database Design and Implementation",
@@ -116,30 +145,54 @@ export default function Projects() {
                 <CardDescription className="text-gray-400">{project.association}</CardDescription>
               )}
             </CardHeader>
-            <CardContent className="flex-grow">
-              <p className="mb-2 text-gray-300">{project.description}</p>
-              <ul className="list-disc list-inside space-y-1 text-gray-400">
-                {project.details.map((detail, idx) => (
-                  <li key={idx} className="text-sm">
-                    {detail}
-                  </li>
-                ))}
-              </ul>
-              <div className="mt-4">
-                <h4 className="font-semibold mb-2 text-blue-300">Technologies:</h4>
-                <div className="flex flex-wrap gap-2">
-                  {project.skills.map((skill, idx) => (
-                    <span key={idx} className="text-xs bg-purple-900/50 text-purple-300 px-2 py-1 rounded">
-                      {skill}
-                    </span>
+            <CardContent className="flex-grow flex flex-col justify-between">
+              <div>
+                <p className="mb-2 text-gray-300">{project.description}</p>
+                <ul className="list-disc list-inside space-y-1 text-gray-400">
+                  {project.details.map((detail, idx) => (
+                    <li key={idx} className="text-sm">
+                      {detail}
+                    </li>
                   ))}
+                </ul>
+                <div className="mt-4">
+                  <h4 className="font-semibold mb-2 text-blue-300">Technologies:</h4>
+                  <div className="flex flex-wrap gap-2">
+                    {project.skills.map((skill, idx) => (
+                      <span
+                        key={idx}
+                        className="text-xs bg-purple-900/50 text-purple-300 px-2 py-1 rounded"
+                      >
+                        {skill}
+                      </span>
+                    ))}
+                  </div>
                 </div>
               </div>
+              {project.link && (
+                <div className="mt-4">
+                  <a
+                    href={project.link}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-sm text-purple-400 transition-all duration-300 ease-in-out hover:text-purple-300 hover:tracking-wide hover:shadow-[0_0_5px_#A78BFA,0_0_10px_#A78BFA]">
+                    <div className="flex">
+                      <div className="mx-2">
+                      <Github/>
+                      </div> 
+                      <div className="font-semibold">
+                      Github Repository 
+                        </div>
+                    </div>
+                  </a>
+                </div>
+              )}
             </CardContent>
           </Card>
         ))}
       </div>
     </section>
-  )
+  );
 }
+
 

@@ -1,10 +1,10 @@
 import { Badge } from "@/components/ui/badge"
 
 const skillsData = {
-  Languages: ["JavaScript", "TypeScript", "Python", "Java", "C"],
-  "Frameworks & Libraries": ["React", "Express.js", "Tailwind CSS", "Next.js"],
-  Databases: ["MySQL", "PostgreSQL", "MongoDB"],
-  "Tools & Platforms": ["Docker", "AWS", "Vercel", "GitHub Actions"],
+  Languages: ["JavaScript", "TypeScript", "Python", "Java", "MATLAB"],
+  "Frameworks & Libraries": ["React", "Node.js", "Express.js", "Next.js", "Prisma", "Three.js"],
+  "Web Technologies & Databases": ["HTML", "CSS", "Tailwind CSS", "PostgreSQL", "MongoDB"],
+  "Tools & Platforms": ["Git", "Docker", "AWS", "CI/CD (GitHub Actions)", "Cloudflare Workers", "Turborepo"],
 }
 
 export default function Skills() {
