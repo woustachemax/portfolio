@@ -3,6 +3,21 @@ import { Github } from 'lucide-react';
 
 const projectsData = [
   {
+    "title": "AI-Driven Stock Trading with Claude & Zerodha",
+    "date": "May 2025",
+    "association": "Personal Project",
+    "description": "Developed a custom **Model Context Protocol (MCP)** server enabling Claude, an **LLM**, to execute real-time stock trades through Zerodha, an Indian brokerage, overcoming significant documentation scarcity.",
+    "details": [
+      "Engineered a custom MCP server as a bridge between Claude and Zerodha's trading API.",
+      "Integrated deeply with Zerodha's developer API for authentication, order placement, and portfolio management.",
+      "Defined a suite of 'tools' within the MCP server for trading actions, meticulously described for Claude's understanding.",
+      "Implemented natural language processing to translate Claude's commands into precise API calls.",
+      "Incorporated real-time confirmation mechanisms to ensure user control over trade execution.",
+      "Navigated and solved complex integration challenges due to extremely limited MCP documentation for AI agents."
+    ],
+    "skills": ["TypeScript", "Node.js", "Model Context Protocol (MCP)", "LLM Integration", "Financial APIs", "Zerodha API", "Natural Language Processing", "API Development"]
+  },
+  {
   title: "Watchman | Uptime Monitoring App",
   date: "May 2025",
   association: "Personal Project",
