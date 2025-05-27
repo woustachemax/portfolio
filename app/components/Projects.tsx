@@ -6,7 +6,7 @@ const projectsData = [
     "title": "AI-Driven Stock Trading with Claude & Zerodha",
     "date": "May 2025",
     "association": "Personal Project",
-    "description": "Developed a custom **Model Context Protocol (MCP)** server enabling Claude, an **LLM**, to execute real-time stock trades through Zerodha, an Indian brokerage, overcoming significant documentation scarcity.",
+    "description": "Developed a custom Model Context Protocol (MCP) server enabling Claude, an LLM, to execute real-time stock trades through Zerodha, an Indian brokerage, overcoming significant documentation scarcity.",
     "details": [
       "Engineered a custom MCP server as a bridge between Claude and Zerodha's trading API.",
       "Integrated deeply with Zerodha's developer API for authentication, order placement, and portfolio management.",
