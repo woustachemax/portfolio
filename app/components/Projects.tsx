@@ -20,7 +20,7 @@ const projectsData = [
 },
   {
   "title": "Real Madrid Performance Analytics",
-  "date": "March 2025",
+  "date": "June 2025",
   "association": "Personal Project",
   "description": "Analyzed Real Madrid’s in-game performance using Python-based data pipelines, generating actionable insights through interactive visualizations and match-specific metrics.",
   "details": [
