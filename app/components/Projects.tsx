@@ -20,17 +20,16 @@ const projectsData = [
 },
   {
   "title": "Real Madrid Performance Analytics",
-  "date": "June 2025",
+  "date": "March 2025",
   "association": "Personal Project",
-  "description": "Analyzed Real Madrid’s in-game performance using Python-based data pipelines, generating actionable insights through interactive visualizations and match-specific metrics.",
+  "description": "Performed data-driven performance analysis of Real Madrid matches using Python to extract and visualize player and team-level insights.",
   "details": [
-    "Built a data ingestion pipeline to collect player and match data from FBref and other football statistics sources.",
-    "Implemented preprocessing scripts to clean and normalize large datasets for consistency across matches and seasons.",
-    "Generated performance metrics such as xG, pass accuracy, and defensive actions per player per 90 minutes.",
-    "Created custom visualizations using Matplotlib and Seaborn to highlight trends in squad efficiency and opponent matchups.",
-    "Explored win probability modeling and time-series forecasting for result prediction."
+    "Scraped match and player data from public football stats websites and stored it in structured formats.",
+    "Used Pandas and NumPy to clean, process, and aggregate match statistics across multiple seasons.",
+    "Built custom visualizations to analyze key metrics like goals, assists, shot accuracy, and player efficiency.",
+    "Automated generation of season summaries and comparisons across players and match types."
   ],
-  "skills": ["Python", "Pandas", "Matplotlib", "Seaborn", "Data Analysis", "Sports Analytics", "Time-Series Forecasting"],
+  "skills": ["Python", "Pandas", "Matplotlib", "NumPy", "Data Analysis", "Sports Analytics"],
   "link": "https://github.com/woustachemax/sports-analysis"
 },
   {
