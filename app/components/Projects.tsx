@@ -20,7 +20,7 @@ const projectsData = [
 },
   {
   "title": "Real Madrid Performance Analytics",
-  "date": "March 2025",
+  "date": "June 2025",
   "association": "Personal Project",
   "description": "Performed data-driven performance analysis of Real Madrid matches using Python to extract and visualize player and team-level insights.",
   "details": [
