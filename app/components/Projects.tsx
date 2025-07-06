@@ -3,6 +3,37 @@ import { Github } from 'lucide-react';
 
 const projectsData = [
   {
+  "title": "Episteme: AI-Powered Wikipedia Platform",
+  "date": "July 2025",
+  "association": "Personal Project",
+  "description": "Built a full-stack AI-powered platform that generates and curates unbiased Wikipedia-style articles using GPT-4 and real-time web parsing, with automated fact-checking and editorial oversight.",
+  "details": [
+    "Engineered an AI-driven article generator using GPT-4 to produce topic-specific, fact-based content.",
+    "Integrated real-time web scraping pipelines to enrich articles with current and reliable data sources.",
+    "Developed a Python microservices backend for fact-checking, bias detection, and source verification.",
+    "Implemented dual authentication (Google OAuth and credentials) with role-based access and rate limiting.",
+    "Designed a community editing system with AI validation to preserve article integrity.",
+    "Built the full-stack app with Next.js, Vercel AI SDK, Prisma ORM, and PostgreSQL, ensuring seamless integration with Python services."
+  ],
+  "skills": ["Next.js", "TypeScript", "Python", "GPT-4", "Web Scraping", "OAuth", "Prisma ORM", "PostgreSQL", "Vercel AI SDK", "Microservices", "Bias Detection", "AI Fact-Checking"],
+  "link": "https://github.com/woustachemax/episteme"
+},
+  {
+  "title": "Real Madrid Performance Analytics",
+  "date": "March 2025",
+  "association": "Personal Project",
+  "description": "Analyzed Real Madrid’s in-game performance using Python-based data pipelines, generating actionable insights through interactive visualizations and match-specific metrics.",
+  "details": [
+    "Built a data ingestion pipeline to collect player and match data from FBref and other football statistics sources.",
+    "Implemented preprocessing scripts to clean and normalize large datasets for consistency across matches and seasons.",
+    "Generated performance metrics such as xG, pass accuracy, and defensive actions per player per 90 minutes.",
+    "Created custom visualizations using Matplotlib and Seaborn to highlight trends in squad efficiency and opponent matchups.",
+    "Explored win probability modeling and time-series forecasting for result prediction."
+  ],
+  "skills": ["Python", "Pandas", "Matplotlib", "Seaborn", "Data Analysis", "Sports Analytics", "Time-Series Forecasting"],
+  "link": "https://github.com/woustachemax/sports-analysis"
+},
+  {
     "title": "AI-Driven Stock Trading with Claude & Zerodha",
     "date": "May 2025",
     "association": "Personal Project",
