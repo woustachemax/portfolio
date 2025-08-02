@@ -1,7 +1,24 @@
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
-import { Github } from 'lucide-react';
+import { Github, ExternalLink } from 'lucide-react';
 
 const projectsData = [
+  {
+    "title": "Conv",
+    "date": "July 2025 - August 2025", 
+    "association": "Personal Project",
+    "description": "Built a seamless playlist conversion tool that transfers music collections between Spotify, YouTube Music, and Apple Music with intelligent track matching and real-time sync capabilities.",
+    "details": [
+      "Developed advanced track matching algorithms using fuzzy string matching and similarity scoring for 85%+ accuracy.",
+      "Integrated OAuth 2.0 authentication for secure access to Spotify, YouTube, and Apple Music APIs.",
+      "Built real-time playlist synchronization with progress tracking and detailed conversion reports.",
+      "Implemented smart duplicate detection and batch processing for large playlists (1000+ tracks).",
+      "Created responsive UI with glassmorphism design and smooth animations for optimal user experience.",
+      "Deployed scalable architecture handling 50+ concurrent conversions with efficient rate limiting."
+    ],
+    "skills": ["Next.js", "TypeScript", "OAuth 2.0", "Spotify API", "YouTube API", "Apple Music API", "Prisma ORM", "PostgreSQL", "Tailwind CSS", "Vercel"],
+    "link": "https://github.com/woustachemax/conv",
+    "live": "https://conv-olive.vercel.app"
+  },
   {
   "title": "Episteme: AI-Powered Wikipedia Platform",
   "date": "July 2025",
@@ -16,7 +33,8 @@ const projectsData = [
     "Built the full-stack app with Next.js, Vercel AI SDK, Prisma ORM, and PostgreSQL, ensuring seamless integration with Python services."
   ],
   "skills": ["Next.js", "TypeScript", "Python", "GPT-4", "Web Scraping", "OAuth", "Prisma ORM", "PostgreSQL", "Vercel AI SDK", "Microservices", "Bias Detection", "AI Fact-Checking"],
-  "link": "https://github.com/woustachemax/episteme"
+  "link": "https://github.com/woustachemax/episteme",
+  "live": "https://episteme-indol.vercel.app/"
 },
   {
   "title": "Real Madrid Performance Analytics",
@@ -229,9 +247,27 @@ export default function Projects() {
                       <div className="font-semibold">
                       Github Repository 
                         </div>
+                      <div></div>
                     </div>
                   </a>
                 </div>
+              )} <br />
+              {project.live && (
+                  <a
+                    href={project.live}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-sm text-purple-400 transition-all duration-300 ease-in-out hover:text-purple-300 ">
+                    <div className="flex">
+                      <div className="mx-2">
+                        <ExternalLink/>
+                      </div> 
+                      <div className="font-semibold">
+                      Live Demo 
+                        </div>
+                      <div></div>
+                    </div>
+                  </a>
               )}
             </CardContent>
           </Card>

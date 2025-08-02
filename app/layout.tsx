@@ -9,13 +9,10 @@ const inter = Inter({ subsets: ["latin"] })
 export const metadata = {
   title: "Siddharth Thakkar",
   description: "Software Developer | MERN Stack | 3D Web Development",
-  icons: [
-    {
-      rel: "icon",
-      type: "image/svg+xml",
-      url: "/portfolio/favicon.svg",
-    },
-  ],
+  icons: {
+    icon: "/favicon.svg",
+    apple: "/apple-touch-icon.png",
+  },
 }
 
 export default function RootLayout({
@@ -34,4 +31,3 @@ export default function RootLayout({
     </html>
   )
 }
-

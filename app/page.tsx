@@ -57,9 +57,7 @@ export default function Home() {
         </div>
       </section>
 
-      <footer className="text-center py-8 text-gray-400">
-        <p>Made with ❤️ by Siddharth</p>
-      </footer>
+
     </div>
   )
 }
