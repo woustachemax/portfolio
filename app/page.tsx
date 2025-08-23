@@ -1,5 +1,5 @@
 "use client"
-import { Button } from "@/components/ui/button"
+
 import Education from "./components/Education"
 import Skills from "./components/Skills"
 import Projects from "./components/Projects"
@@ -9,62 +9,29 @@ import GitHubContributions from "./components/GitHub"
 export default function Home() {
   return (
     <>
-      <div className="space-y-16 md:space-y-32 px-4 py-8">
-        <section id="hero" className="flex flex-col items-center justify-center min-h-screen text-center">
-          <h1 className="text-4xl md:text-6xl font-bold text-blue-200 mb-6 animate-pulse px-2">Siddharth Thakkar</h1>
-          <ChangingTitle />
-          <p className="text-lg md:text-xl text-gray-300 max-w-2xl mb-8 mt-4 px-4">
-            Embarking on a cosmic journey through web development, creating immersive digital experiences that transcend
-            boundaries.
-          </p>
-            <Button asChild size="lg" className="bg-blue-950  hover:bg-blue-950 text-blue-200 hover:text-white hover:border-blue-900 hover:scale-105 transition-all duration-800 mt-4 rounded-full animate-bounce">
-               <a href="#projects">Check Out my work</a>
-            </Button>
-        </section>
+      <main className="max-w-5xl mx-auto px-6 py-12 space-y-20">
 
-        <section id="about" className="my-32 bg-black/50 p-8 rounded-lg backdrop-blur-sm border border-blue-950 hover:border-blue-400">
-          <h2 className="text-4xl font-bold mb-6 text-gray-500">About Me</h2>
-          <div className="space-y-4 text-lg text-blue-100">
-              <p>
-                Hi, I'm Siddharth. I'm an Electronics Engineer turned Software Developer, focused on building immersive experiences with Three.js and full stack applications with the MERN stack. My work spans from AI-powered tools to clean, user-friendly web apps. I enjoy solving hard problems and turning ideas into production-ready projects.
-              </p>
-          </div>
-        </section>
+        <div className="w-full max-w-4xl mx-auto px-4">
+          <section id="hero" className="flex flex-col space-y-4 text-left">
+            <h1 className="text-5xl font-bold text-blue-200">
+              Hi, I'm Siddharth.
+            </h1>
+            <ChangingTitle />
+            <p className="text-gray-400 text-sm tracking-wide">
+              I love building 
+            </p>
+          </section>
+        </div>
 
-        <Education />
-
-        <Projects />
-
-        <Skills />
-
-        <GitHubContributions />
-      </div>
-
-      <style jsx global>{`
-        /* Webkit browsers (Chrome, Safari, Edge) */
-        ::-webkit-scrollbar {
-          width: 8px;
-        }
+        <div className="w-full max-w-4xl mx-auto px-4 space-y-16">
+          <Education />
+          <Projects />
+          <Skills />
+          <GitHubContributions />
+        </div>
         
-        ::-webkit-scrollbar-track {
-          background: transparent;
-        }
-        
-        ::-webkit-scrollbar-thumb {
-          background: #e5e7eb; /* gray-200 */
-          border-radius: 4px;
-        }
-        
-        ::-webkit-scrollbar-thumb:hover {
-          background: #ffffff; /* white */
-        }
 
-        /* Firefox */
-        html {
-          scrollbar-width: thin;
-          scrollbar-color: #e5e7eb transparent;
-        }
-      `}</style>
+      </main>
     </>
   )
 }

@@ -18,16 +18,14 @@ export default function ChangingTitle() {
   useEffect(() => {
     const interval = setInterval(() => {
       setTitleIndex((prevIndex) => (prevIndex + 1) % titles.length)
-    }, 5000)
+    }, 4000)
 
     return () => clearInterval(interval)
   }, [])
 
   return (
-    <div className="min-h-[4rem] md:min-h-[2rem] flex items-center justify-center px-4">
-      <p className="text-xl md:text-2xl text-blue-200 text-center transition-colors duration-300">
-        {titles[titleIndex]} | <span className="block md:inline text-blue-300">Exploring the Digital Universe</span>
-      </p>
-    </div>
+    <p className="text-xl md:text-2xl text-blue-300 transition-all duration-300">
+      {titles[titleIndex]}
+    </p>
   )
 }

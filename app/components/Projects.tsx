@@ -1,8 +1,8 @@
-"use client";
+"use client"
 
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
-import { Github, ExternalLink, ChevronDown, ChevronUp } from 'lucide-react';
-import { useState } from 'react';
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
+import { Github, ExternalLink, ChevronDown, ChevronUp } from "lucide-react"
+import { useState } from "react"
 
 const projectsData = [
   {
@@ -23,7 +23,7 @@ const projectsData = [
     "live": "https://conv-olive.vercel.app"
   },
   {
-  "title": "Episteme: AI-Powered Wikipedia Platform",
+  "title": "Episteme",
   "date": "July 2025",
   "association": "Personal Project",
   "description": "Built a full-stack AI-powered platform that generates and curates unbiased Wikipedia-style articles using GPT-4 and real-time web parsing, with automated fact-checking and editorial oversight.",
@@ -40,7 +40,7 @@ const projectsData = [
   "live": "https://episteme-indol.vercel.app/"
 },
   {
-  title: "Watchman | Uptime Monitoring App",
+  title: "Watchman",
   date: "May 2025",
   association: "Personal Project",
   description:
@@ -55,7 +55,7 @@ const projectsData = [
   link: "https://github.com/woustachemax/watchman"
 },
 {
-  title: "Sinkronize | Real-Time Collaboration Platform",
+  title: "Sinkronize",
   date: "March 2025 - April 2025",
   association: "Personal Project",
   description:
@@ -99,104 +99,77 @@ const projectsData = [
 }
 ];
 
+
+
 export default function Projects() {
-  const [expandedProjects, setExpandedProjects] = useState<number[]>([]);
-
-  const toggleProject = (index: number) => {
-    setExpandedProjects(prev => {
-      if (prev.includes(index)) {
-        return prev.filter(i => i !== index);
-      } else {
-        return [...prev, index];
-      }
-    });
-  };
-
-  const isExpanded = (index: number) => expandedProjects.includes(index);
+  const [expandedProject, setExpandedProject] = useState<number | null>(null)
+  const toggleProject = (index: number) => setExpandedProject(prev => (prev === index ? null : index))
 
   return (
-    <section id="projects" className="my-32">
+    <section id="projects" className="my-32 max-w-6xl mx-auto px-4">
       <h2 className="text-4xl font-bold mb-8 text-gray-500">Projects</h2>
-      <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+      <div className="flex flex-wrap gap-6">
         {projectsData.map((project, index) => (
           <Card
             key={index}
-            className="flex flex-col bg-black/50 border border-blue-950 hover:border-blue-400 transition-all duration-300"
+            className="flex flex-col bg-black/50 border border-blue-950 hover:border-blue-400 
+                       transition-all duration-300 hover:scale-[1.02] w-full md:w-[calc(50%-0.75rem)]"
           >
-            <CardHeader>
-              <CardTitle className="text-blue-100">{project.title}</CardTitle>
-              <CardDescription className="text-gray-400">{project.date}</CardDescription>
-              {project.association && (
-                <CardDescription className="text-gray-400">{project.association}</CardDescription>
-              )}
+            <CardHeader className="pb-2"> 
+              <CardTitle className="text-blue-100 text-lg font-semibold line-clamp-1">
+                {project.title}
+              </CardTitle>
+              <div className="flex justify-between text-xs text-gray-400">
+                <span>{project.date}</span>
+                {project.association && <span className="ml-2">{project.association}</span>}
+              </div>
             </CardHeader>
-            <CardContent className="flex-grow flex flex-col justify-between">
-              <div>
-                <p className="mb-4 text-blue-100">{project.description}</p>
-                
-                <button
-                  onClick={() => toggleProject(index)}
-                  className="flex items-center gap-2 text-blue-100 hover:text-blue-400 transition-colors duration-200 mb-4"
-                >
-                  <span className="font-semibold">
-                    {isExpanded(index) ? 'Hide Details' : 'Show Details'}
-                  </span>
-                  {isExpanded(index) ? (
-                    <ChevronUp className="w-4 h-4" />
-                  ) : (
-                    <ChevronDown className="w-4 h-4" />
-                  )}
-                </button>
 
-                <div className={`overflow-hidden transition-all duration-300 ease-in-out ${
-                  isExpanded(index) 
-                    ? 'max-h-96 opacity-100' 
-                    : 'max-h-0 opacity-0'
-                }`}>
+            <CardContent className="p-3 flex-grow flex flex-col justify-between">
+              <button
+                onClick={() => toggleProject(index)}
+                className="flex items-center gap-2 text-blue-100 hover:text-blue-400 transition-colors duration-200 mb-4"
+              >
+                <span className="font-semibold">
+                  {expandedProject === index ? "Hide Details" : "Show Details"}
+                </span>
+                {expandedProject === index ? <ChevronUp className="w-4 h-4" /> : <ChevronDown className="w-4 h-4" />}
+              </button>
+
+              <div
+                className={`grid transition-all duration-300 ease-in-out ${
+                  expandedProject === index ? "grid-rows-[1fr] opacity-100" : "grid-rows-[0fr] opacity-0"
+                }`}
+              >
+                <div className="overflow-hidden">
+                  <p className="mb-4 text-blue-100">{project.description}</p>
                   <ul className="list-disc list-inside space-y-1 text-gray-400 mb-4">
                     {project.details.map((detail, idx) => (
-                      <li key={idx} className="text-sm">
-                        {detail}
-                      </li>
+                      <li key={idx} className="text-sm">{detail}</li>
                     ))}
                   </ul>
-                </div>
-
-                <div className="mt-4">
-                  <h4 className="font-semibold mb-2 text-blue-100">Technologies:</h4>
-                  <div className="flex flex-wrap gap-2">
-                    {project.skills.map((skill, idx) => (
-                      <span
-                        key={idx}
-                        className="text-xs bg-blue-950 text-blue-200 px-2 py-1 rounded hover:text-white transition-colors duration-200"
-                      >
-                        {skill}
-                      </span>
-                    ))}
+                  <div className="mt-4">
+                    <h4 className="font-semibold mb-2 text-blue-100">Technologies:</h4>
+                    <div className="flex flex-wrap gap-2">
+                      {project.skills.map((skill, idx) => (
+                        <span key={idx} className="text-xs bg-blue-950 text-blue-200 px-2 py-1 rounded hover:text-white transition-colors duration-200">
+                          {skill}
+                        </span>
+                      ))}
+                    </div>
                   </div>
                 </div>
               </div>
 
               <div className="mt-6 space-y-3">
                 {project.link && (
-                  <a
-                    href={project.link}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="text-sm text-blue-100 transition-all duration-300 ease-in-out hover:text-blue-400 flex items-center gap-2"
-                  >
+                  <a href={project.link} target="_blank" rel="noopener noreferrer" className="text-sm text-blue-100 hover:text-blue-400 flex items-center gap-2">
                     <Github className="w-4 h-4" />
                     <span className="font-semibold">Github Repository</span>
                   </a>
                 )}
-                
                 {project.live && (
-                  <a
-                    href={project.live}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="text-sm text-blue-100 transition-all duration-300 ease-in-out hover:text-blue-400 flex items-center gap-2"
-                  >
+                  <a href={project.live} target="_blank" rel="noopener noreferrer" className="text-sm text-blue-100 hover:text-blue-400 flex items-center gap-2">
                     <ExternalLink className="w-4 h-4" />
                     <span className="font-semibold">Live Demo</span>
                   </a>
@@ -207,5 +180,5 @@ export default function Projects() {
         ))}
       </div>
     </section>
-  );
+  )
 }

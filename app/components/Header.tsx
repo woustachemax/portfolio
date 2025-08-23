@@ -9,14 +9,13 @@ export default function Header() {
   const [isScrolled, setIsScrolled] = useState(false)
 
   const navItems = [
-    { id: "about", label: "About" },
     { id: "projects", label: "Projects" },
     { id: "skills", label: "Skills" },
     { id: "github", label: "Activity" }
   ]
 
   const XIcon = () => (
-    <svg viewBox="0 0 24 24" className="w-4 h-4 text-blue-950" fill="currentColor">
+    <svg viewBox="0 0 24 24" className="w-4 h-4 text-gray-200 hover:text-blue-200" fill="currentColor">
       <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
     </svg>
   )
@@ -67,15 +66,15 @@ export default function Header() {
         <div className="flex justify-center items-center">
           <div className={`hidden md:flex items-center transition-all duration-500 w-auto ${
             isScrolled 
-              ? 'bg-black/80 backdrop-blur-xl border border-gray-400 rounded-full px-4 py-2 shadow-2xl' 
-              : 'bg-black/60 backdrop-blur-sm border border-gray-400 rounded-full px-4 py-2 shadow-lg'
+              ? 'bg-black/80 backdrop-blur-xl border border-gray-500 rounded-full px-4 py-2 shadow-2xl' 
+              : 'bg-black/60 backdrop-blur-sm border border-gray-500 rounded-full px-4 py-2 shadow-lg'
           }`}>
             <div className="flex items-center">
               {navItems.map((item, index) => (
                 <div key={item.id} className="flex items-center">
                   <button
                     onClick={() => scrollToSection(item.id)}
-                    className="px-4 py-2 text-sm font-medium transition-all duration-300 ease-out text-blue-950 hover:scale-105"
+                    className="px-4 py-2 text-sm font-medium transition-all duration-300 ease-out text-gray-200 hover:text-blue-200 hover:scale-105"
                   >
                     {item.label}
                   </button>
@@ -91,10 +90,10 @@ export default function Header() {
                     href={social.href}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="px-4 py-2 text-blue-950 hover:scale-110 transition-all duration-300 flex items-center"
+                    className="px-4 py-2 text-gray-200 hover:text-blue-200 hover:scale-110 transition-all duration-300 flex items-center"
                     aria-label={social.label}
                   >
-                    <social.icon className="w-4 h-4 text-blue-950" />
+                    <social.icon className="w-4 h-4 text-gray-200 hover:text-blue-200" />
                   </a>
                   {index < socialItems.length - 1 && (
                     <span className="text-gray-400 mx-2">|</span>
@@ -106,9 +105,9 @@ export default function Header() {
           <div className="md:hidden">
             <button
               onClick={() => setIsMenuOpen(!isMenuOpen)}
-              className="p-3 rounded-full transition-all duration-300 bg-black/60 backdrop-blur-sm border border-gray-200 text-gray-200"
+              className="p-3 rounded-full transition-all duration-300 bg-black/60 backdrop-blur-sm border border-gray-200 text-gray-200 hover:text-blue-200"
             >
-              {isMenuOpen ? <X className="w-6 h-6 text-blue-950" /> : <Menu className="w-6 h-6 text-blue-950" />}
+              {isMenuOpen ? <X className="w-6 h-6 text-gray-200 hover:text-blue-200" /> : <Menu className="w-6 h-6 text-gray-200 hover:text-blue-200" />}
             </button>
           </div>
         </div>
@@ -123,7 +122,7 @@ export default function Header() {
                 <li key={item.id}>
                   <button
                     onClick={() => scrollToSection(item.id)}
-                    className="w-full text-left px-4 py-3 rounded-xl transition-all duration-300 transform hover:scale-[1.02] text-blue-950"
+                    className="w-full text-left px-4 py-3 rounded-xl transition-all duration-300 transform hover:scale-[1.02] text-gray-200 hover:text-blue-200"
                     style={{
                       animationDelay: `${index * 50}ms`,
                       animation: isMenuOpen ? 'slideInUp 0.3s ease-out forwards' : 'none'
@@ -142,14 +141,14 @@ export default function Header() {
                     href={social.href}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="w-full flex items-center justify-center px-4 py-3 text-blue-950 hover:scale-[1.02] transition-all duration-300 rounded-xl"
+                    className="w-full flex items-center justify-center px-4 py-3 text-gray-200 hover:text-blue-200 hover:scale-[1.02] transition-all duration-300 rounded-xl"
                     style={{
                       animationDelay: `${(navItems.length + index) * 50}ms`,
                       animation: isMenuOpen ? 'slideInUp 0.3s ease-out forwards' : 'none'
                     }}
                     aria-label={social.label}
                   >
-                    <social.icon className="w-5 h-5 text-blue-950" />
+                    <social.icon className="w-5 h-5 text-gray-200 hover:text-blue-200" />
                   </a>
                 ))}
               </div>
