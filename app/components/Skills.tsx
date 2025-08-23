@@ -1,31 +1,44 @@
 import { Badge } from "@/components/ui/badge"
 
-const skillsData = {
-  Languages: ["JavaScript", "TypeScript", "Python", "Java", "MATLAB"],
-  "Frameworks & Libraries": ["React", "Node.js", "Express.js", "Next.js", "Prisma", "Three.js"],
-  "Web Technologies & Databases": ["HTML", "CSS", "Tailwind CSS", "PostgreSQL", "MongoDB"],
-  "Tools & Platforms": ["Git", "Docker", "AWS", "CI/CD (GitHub Actions)", "Cloudflare Workers", "Turborepo"],
-}
+const skills = [
+  "JavaScript", "TypeScript", "Python", 
+  "React", "Node.js", "Next.js", 
+  "Tailwind CSS", "PostgreSQL", "MongoDB", 
+  "Three.js", "Docker", "AWS"
+]
 
 export default function Skills() {
   return (
     <section id="skills" className="my-16">
-      <h2 className="text-3xl font-bold mb-8">Tech Skills</h2>
-      <div className="grid gap-6 md:grid-cols-2">
-        {Object.entries(skillsData).map(([category, skills]) => (
-          <div key={category}>
-            <h3 className="text-xl font-semibold mb-4">{category}</h3>
-            <div className="flex flex-wrap gap-2">
-              {skills.map((skill) => (
-                <Badge key={skill} variant="secondary">
-                  {skill}
-                </Badge>
-              ))}
-            </div>
-          </div>
+      <h2 className="text-3xl font-bold mb-8 text-gray-500">Skills</h2>
+      <div className="flex flex-wrap gap-3">
+        {skills.map((skill, index) => (
+          <Badge 
+            key={skill} 
+            variant="secondary"
+            className="px-4 py-2 text-sm font-medium bg-blue-950 text-blue-200 hover:bg-blue-950 hover:text-white hover:scale-105 transition-all duration-200 border-0"
+            style={{
+              animationDelay: `${index * 50}ms`,
+              animation: 'fadeInUp 0.5s ease-out forwards'
+            }}
+          >
+            {skill}
+          </Badge>
         ))}
       </div>
+      
+      <style jsx>{`
+        @keyframes fadeInUp {
+          from {
+            opacity: 0;
+            transform: translateY(20px);
+          }
+          to {
+            opacity: 1;
+            transform: translateY(0);
+          }
+        }
+      `}</style>
     </section>
   )
 }
-

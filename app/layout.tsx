@@ -10,8 +10,8 @@ export const metadata = {
   title: "Siddharth Thakkar",
   description: "Software Developer | MERN Stack | 3D Web Development",
   icons: {
-    icon: "/favicon.svg",
-    apple: "/apple-touch-icon.png",
+    icon: "/faicon.svg",
+    apple: "/apple-touch-icon.",
   },
 }
 

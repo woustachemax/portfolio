@@ -17,7 +17,6 @@ export default function SpaceBackground({ children }: { children: React.ReactNod
 
     renderer.setSize(window.innerWidth, window.innerHeight)
 
-    // Create stars
     const starGeometry = new THREE.BufferGeometry()
     const starMaterial = new THREE.PointsMaterial({ color: 0xffffff, size: 0.1 })
 
@@ -33,9 +32,8 @@ export default function SpaceBackground({ children }: { children: React.ReactNod
     const stars = new THREE.Points(starGeometry, starMaterial)
     scene.add(stars)
 
-    // Create galaxies
     const galaxyGeometry = new THREE.BufferGeometry()
-    const galaxyMaterial = new THREE.PointsMaterial({ color: 0x8866ff, size: 0.2 })
+    const galaxyMaterial = new THREE.PointsMaterial({ color: 0x1E3A8A, size: 0.2 })
     const galaxyVertices = []
     for (let i = 0; i < 5000; i++) {
       const radius = THREE.MathUtils.randFloat(10, 100)
@@ -49,7 +47,6 @@ export default function SpaceBackground({ children }: { children: React.ReactNod
     const galaxy = new THREE.Points(galaxyGeometry, galaxyMaterial)
     scene.add(galaxy)
 
-    // Create planets
     const createPlanet = (texture: string, size: number, position: [number, number, number]) => {
       const planetTexture = new TextureLoader().load(texture)
       const planetGeometry = new THREE.SphereGeometry(size, 32, 32)

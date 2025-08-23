@@ -4,7 +4,7 @@ import { useState, useEffect } from "react"
 
 const titles = [
   "Software Developer",
-  "Full Stack Developer",
+  "Full Stack Developer", 
   "Frontend Developer",
   "Backend Developer",
   "Web Application Developer",
@@ -25,10 +25,9 @@ export default function ChangingTitle() {
 
   return (
     <div className="min-h-[4rem] md:min-h-[2rem] flex items-center justify-center px-4">
-      <p className="text-xl md:text-2xl text-blue-300 text-center">
-        {titles[titleIndex]} | <span className="block md:inline">Exploring the Digital Universe</span>
+      <p className="text-xl md:text-2xl text-blue-200 text-center transition-colors duration-300">
+        {titles[titleIndex]} | <span className="block md:inline text-blue-300">Exploring the Digital Universe</span>
       </p>
     </div>
   )
 }
-

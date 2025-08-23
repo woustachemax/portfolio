@@ -5,43 +5,30 @@ const educationData = [
     school: "Boston University",
     degree: "Masters in Computer Information Systems",
     date: "Graduated January 17, 2025",
-    courses: [
-      "Information Structures with Java",
-      "Server-Side Development",
-      "Web Application Development",
-      "Mobile Application Development",
-      "Database Design and Implementation for Business",
-    ],
   },
   {
     school: "K.J. Somaiya College of Engineering",
     degree: "B.Tech in Electronics Engineering",
     date: "Graduated June 2023",
-    courses: ["Data Structures", "C Programming", "Mobile App Development (Flutter)", "Big Data Analytics"],
   },
 ]
 
 export default function Education() {
   return (
     <section id="education" className="my-16">
-      <h2 className="text-3xl font-bold mb-8">Education</h2>
+      <h2 className="text-3xl text-gray-500 font-bold mb-8">Education</h2>
       <div className="grid gap-6 md:grid-cols-2">
         {educationData.map((edu, index) => (
-          <Card key={index}>
+          <Card 
+            key={index} 
+            className="bg-black/50 border border-blue-950 hover:border-blue-400 hover:scale-[1.02] transition-all duration-300 backdrop-blur-sm"
+          >
             <CardHeader>
-              <CardTitle>{edu.school}</CardTitle>
-              <CardDescription>{edu.degree}</CardDescription>
+              <CardTitle className="text-blue-100">{edu.school}</CardTitle>
+              <CardDescription className="text-gray-400">{edu.degree}</CardDescription>
             </CardHeader>
             <CardContent>
-              <p className="text-sm text-muted-foreground mb-2">{edu.date}</p>
-              <h4 className="font-semibold mb-2">Relevant Coursework:</h4>
-              <ul className="list-disc list-inside">
-                {edu.courses.map((course, idx) => (
-                  <li key={idx} className="text-sm">
-                    {course}
-                  </li>
-                ))}
-              </ul>
+              <p className="text-sm text-blue-200 mb-2">{edu.date}</p>
             </CardContent>
           </Card>
         ))}
@@ -49,4 +36,3 @@ export default function Education() {
     </section>
   )
 }
-

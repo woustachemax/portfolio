@@ -1,5 +1,8 @@
+"use client";
+
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
-import { Github, ExternalLink } from 'lucide-react';
+import { Github, ExternalLink, ChevronDown, ChevronUp } from 'lucide-react';
+import { useState } from 'react';
 
 const projectsData = [
   {
@@ -37,35 +40,6 @@ const projectsData = [
   "live": "https://episteme-indol.vercel.app/"
 },
   {
-  "title": "Real Madrid Performance Analytics",
-  "date": "June 2025",
-  "association": "Personal Project",
-  "description": "Performed data-driven performance analysis of Real Madrid matches using Python to extract and visualize player and team-level insights.",
-  "details": [
-    "Scraped match and player data from public football stats websites and stored it in structured formats.",
-    "Used Pandas and NumPy to clean, process, and aggregate match statistics across multiple seasons.",
-    "Built custom visualizations to analyze key metrics like goals, assists, shot accuracy, and player efficiency.",
-    "Automated generation of season summaries and comparisons across players and match types."
-  ],
-  "skills": ["Python", "Pandas", "Matplotlib", "NumPy", "Data Analysis", "Sports Analytics"],
-  "link": "https://github.com/woustachemax/sports-analysis"
-},
-  {
-    "title": "AI-Driven Stock Trading with Claude & Zerodha",
-    "date": "May 2025",
-    "association": "Personal Project",
-    "description": "Developed a custom Model Context Protocol (MCP) server enabling Claude, an LLM, to execute real-time stock trades through Zerodha, an Indian brokerage, overcoming significant documentation scarcity.",
-    "details": [
-      "Engineered a custom MCP server as a bridge between Claude and Zerodha's trading API.",
-      "Integrated deeply with Zerodha's developer API for authentication, order placement, and portfolio management.",
-      "Defined a suite of 'tools' within the MCP server for trading actions, meticulously described for Claude's understanding.",
-      "Implemented natural language processing to translate Claude's commands into precise API calls.",
-      "Incorporated real-time confirmation mechanisms to ensure user control over trade execution.",
-      "Navigated and solved complex integration challenges due to extremely limited MCP documentation for AI agents."
-    ],
-    "skills": ["TypeScript", "Node.js", "Model Context Protocol (MCP)", "LLM Integration", "Financial APIs", "Zerodha API", "Natural Language Processing", "API Development"]
-  },
-  {
   title: "Watchman | Uptime Monitoring App",
   date: "May 2025",
   association: "Personal Project",
@@ -100,7 +74,7 @@ const projectsData = [
   date: "March 2025",
   association: "Personal Project",
   description:
-    "Built a full-stack learning path generation MVP integrating GPT-4o via Palantir Foundry’s AIP Logic, with secure authentication and a polished UI.",
+    "Built a full-stack learning path generation MVP integrating GPT-4o via Palantir Foundry's AIP Logic, with secure authentication and a polished UI.",
   details: [
     "Created an AIP Logic function in Palantir Foundry to interact with GPT-4o for generating structured learning paths based on user goals",
     "Built a React frontend with Vite, styled using Tailwind CSS, and enabled navigation via React Router",
@@ -122,87 +96,35 @@ const projectsData = [
     "Zod"
   ],
   link: "https://github.com/woustachemax/aip-app"
-},
-  {
-    title: "Selling on Amazon | Database Design and Implementation",
-    date: "Sep 2024 - Dec 2024",
-    association: "Boston University",
-    description:
-      "Developed automated stored procedures to streamline e-commerce operations, including product addition, inventory management, customer account creation, order processing, and product shipment tracking.",
-    details: [
-      "Created reusable stored procedures for key business processes",
-      "Designed efficient SQL queries to extract business insights",
-      "Optimized business operations through transaction-oriented stored procedures",
-      "Enabled data-driven decision-making with real-time insights",
-    ],
-    skills: ["SQL", "Databases", "Database Design", "E-Commerce"],
-  },
-  {
-    title: "Tuition Notes Application (TNA)",
-    date: "Jan 2024 - May 2024",
-    association: "Boston University",
-    description: "Developed a mobile platform for managing tuition classes.",
-    details: [
-      "Integrated Firebase Authentication",
-      "Used RecyclerView for efficient display of student data",
-      "Implemented MVVM architecture",
-      "Added features for assignment management and student progress tracking",
-    ],
-    skills: ["Android", "Android Studio", "SQLite", "MVVM", "UI/UX Design"],
-  },
-  {
-    title: "Warehouse System Automation (Java)",
-    date: "Aug 2023 - Dec 2023",
-    association: "Boston University",
-    description: "Developed a Java-based warehouse management system.",
-    details: [
-      "Designed Product and Tote classes for efficient management",
-      "Developed Warehouse class to handle operations",
-      "Implemented order fulfillment and tote merging functionalities",
-      "Created a comprehensive test program",
-    ],
-    skills: ["Java", "Object-Oriented Programming", "Data Structures"],
-  },
-  {
-    title: "Human Detecting Quadcopter",
-    date: "Aug 2022 - May 2023",
-    association: "KJ Somaiya College of Engineering, Vidyavihar",
-    description: "Developed a semi-autonomous quadcopter for human detection.",
-    details: [
-      "Implemented ESP32 camera module for real-time video capture",
-      "Designed a 3D-printed chassis using SolidWorks",
-      "Built a custom flight controller",
-      "Programmed flight dynamics using Arduino IDE",
-    ],
-    skills: ["Arduino", "ESP32", "SolidWorks", "Flight Dynamics"],
-  },
-  {
-    title: "Emotion Recognition Software",
-    date: "May 2022 - Jul 2022",
-    association: "KJ Somaiya College of Engineering, Vidyavihar",
-    description:
-      "Developed a system to assist people with hearing impairment by recognizing emotions from audio inputs.",
-    details: [
-      "Used Python, SVM, RNN, and CNN algorithms for audio analysis",
-      "Employed Vox celebrity dataset for model training",
-      "Built the system to identify emotional states and provide real-time feedback",
-    ],
-    skills: ["Python", "Machine Learning", "Data Analytics", "Deep Learning"],
-  },
-]
+}
+];
 
 export default function Projects() {
+  const [expandedProjects, setExpandedProjects] = useState<number[]>([]);
+
+  const toggleProject = (index: number) => {
+    setExpandedProjects(prev => {
+      if (prev.includes(index)) {
+        return prev.filter(i => i !== index);
+      } else {
+        return [...prev, index];
+      }
+    });
+  };
+
+  const isExpanded = (index: number) => expandedProjects.includes(index);
+
   return (
     <section id="projects" className="my-32">
-      <h2 className="text-4xl font-bold mb-8 text-purple-400">Galactic Endeavors</h2>
+      <h2 className="text-4xl font-bold mb-8 text-gray-500">Projects</h2>
       <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
         {projectsData.map((project, index) => (
           <Card
             key={index}
-            className="flex flex-col bg-black/50 border border-purple-500/30 hover:border-purple-500 transition-all duration-300"
+            className="flex flex-col bg-black/50 border border-blue-950 hover:border-blue-400 transition-all duration-300"
           >
             <CardHeader>
-              <CardTitle className="text-blue-300">{project.title}</CardTitle>
+              <CardTitle className="text-blue-100">{project.title}</CardTitle>
               <CardDescription className="text-gray-400">{project.date}</CardDescription>
               {project.association && (
                 <CardDescription className="text-gray-400">{project.association}</CardDescription>
@@ -210,21 +132,43 @@ export default function Projects() {
             </CardHeader>
             <CardContent className="flex-grow flex flex-col justify-between">
               <div>
-                <p className="mb-2 text-gray-300">{project.description}</p>
-                <ul className="list-disc list-inside space-y-1 text-gray-400">
-                  {project.details.map((detail, idx) => (
-                    <li key={idx} className="text-sm">
-                      {detail}
-                    </li>
-                  ))}
-                </ul>
+                <p className="mb-4 text-blue-100">{project.description}</p>
+                
+                <button
+                  onClick={() => toggleProject(index)}
+                  className="flex items-center gap-2 text-blue-100 hover:text-blue-400 transition-colors duration-200 mb-4"
+                >
+                  <span className="font-semibold">
+                    {isExpanded(index) ? 'Hide Details' : 'Show Details'}
+                  </span>
+                  {isExpanded(index) ? (
+                    <ChevronUp className="w-4 h-4" />
+                  ) : (
+                    <ChevronDown className="w-4 h-4" />
+                  )}
+                </button>
+
+                <div className={`overflow-hidden transition-all duration-300 ease-in-out ${
+                  isExpanded(index) 
+                    ? 'max-h-96 opacity-100' 
+                    : 'max-h-0 opacity-0'
+                }`}>
+                  <ul className="list-disc list-inside space-y-1 text-gray-400 mb-4">
+                    {project.details.map((detail, idx) => (
+                      <li key={idx} className="text-sm">
+                        {detail}
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+
                 <div className="mt-4">
-                  <h4 className="font-semibold mb-2 text-blue-300">Technologies:</h4>
+                  <h4 className="font-semibold mb-2 text-blue-100">Technologies:</h4>
                   <div className="flex flex-wrap gap-2">
                     {project.skills.map((skill, idx) => (
                       <span
                         key={idx}
-                        className="text-xs bg-purple-900/50 text-purple-300 px-2 py-1 rounded"
+                        className="text-xs bg-blue-950 text-blue-200 px-2 py-1 rounded hover:text-white transition-colors duration-200"
                       >
                         {skill}
                       </span>
@@ -232,42 +176,32 @@ export default function Projects() {
                   </div>
                 </div>
               </div>
-              {project.link && (
-                <div className="mt-4">
+
+              <div className="mt-6 space-y-3">
+                {project.link && (
                   <a
                     href={project.link}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="text-sm text-purple-400 transition-all duration-300 ease-in-out hover:text-purple-300 hover:tracking-wide hover:shadow-[0_0_5px_#A78BFA,0_0_10px_#A78BFA]">
-                    <div className="flex">
-                      <div className="mx-2">
-                      <Github/>
-                      </div> 
-                      <div className="font-semibold">
-                      Github Repository 
-                        </div>
-                      <div></div>
-                    </div>
+                    className="text-sm text-blue-100 transition-all duration-300 ease-in-out hover:text-blue-400 flex items-center gap-2"
+                  >
+                    <Github className="w-4 h-4" />
+                    <span className="font-semibold">Github Repository</span>
                   </a>
-                </div>
-              )} <br />
-              {project.live && (
+                )}
+                
+                {project.live && (
                   <a
                     href={project.live}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="text-sm text-purple-400 transition-all duration-300 ease-in-out hover:text-purple-300 ">
-                    <div className="flex">
-                      <div className="mx-2">
-                        <ExternalLink/>
-                      </div> 
-                      <div className="font-semibold">
-                      Live Demo 
-                        </div>
-                      <div></div>
-                    </div>
+                    className="text-sm text-blue-100 transition-all duration-300 ease-in-out hover:text-blue-400 flex items-center gap-2"
+                  >
+                    <ExternalLink className="w-4 h-4" />
+                    <span className="font-semibold">Live Demo</span>
                   </a>
-              )}
+                )}
+              </div>
             </CardContent>
           </Card>
         ))}
@@ -275,5 +209,3 @@ export default function Projects() {
     </section>
   );
 }
-
-
