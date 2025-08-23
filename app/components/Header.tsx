@@ -67,8 +67,8 @@ export default function Header() {
         <div className="flex justify-center items-center">
           <div className={`hidden md:flex items-center transition-all duration-500 w-auto ${
             isScrolled 
-              ? 'bg-black/80 backdrop-blur-xl border border-gray-200 rounded-full px-4 py-2 shadow-2xl' 
-              : 'bg-black/60 backdrop-blur-sm border border-gray-200 rounded-full px-4 py-2 shadow-lg'
+              ? 'bg-black/80 backdrop-blur-xl border border-gray-400 rounded-full px-4 py-2 shadow-2xl' 
+              : 'bg-black/60 backdrop-blur-sm border border-gray-400 rounded-full px-4 py-2 shadow-lg'
           }`}>
             <div className="flex items-center">
               {navItems.map((item, index) => (
@@ -80,7 +80,7 @@ export default function Header() {
                     {item.label}
                   </button>
                   {index < navItems.length - 1 && (
-                    <span className="text-gray-200 mx-2">|</span>
+                    <span className="text-gray-400 mx-2">|</span>
                   )}
                 </div>
               ))}
@@ -97,7 +97,7 @@ export default function Header() {
                     <social.icon className="w-4 h-4 text-blue-950" />
                   </a>
                   {index < socialItems.length - 1 && (
-                    <span className="text-gray-200 mx-2">|</span>
+                    <span className="text-gray-400 mx-2">|</span>
                   )}
                 </div>
               ))}
