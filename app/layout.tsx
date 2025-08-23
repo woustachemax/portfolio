@@ -9,8 +9,8 @@ const inter = Inter({ subsets: ["latin"] })
 export const metadata = {
   metadataBase: new URL("https://siddharththakkar.xyz"),
   title: {
-    default: "Siddharth Thakkar (Sid Thakkar) | Developer Portfolio",
-    template: "%s | Siddharth Thakkar (Sid Thakkar)",
+    default: "Siddharth Thakkar",
+    template: "%s | Siddharth Thakkar",
   },
   description:
     "Hi. I'm Siddharth I love building.",
@@ -27,8 +27,8 @@ export const metadata = {
     "Sid Thakkar Full Stack",
   ],
   authors: [{ name: "Siddharth Thakkar", url: "https://siddharththakkar.xyz" }],
-  creator: "Siddharth Thakkar (Sid Thakkar)",
-  publisher: "Siddharth Thakkar (Sid Thakkar)",
+  creator: "Siddharth Thakkar",
+  publisher: "Siddharth Thakkar",
   alternates: {
     canonical: "https://siddharththakkar.xyz",
   },
@@ -38,17 +38,17 @@ export const metadata = {
   },
 
   openGraph: {
-    title: "Siddharth Thakkar (Sid Thakkar) | Official Portfolio",
+    title: "Siddharth Thakkar",
     description:
       "Hi. I'm Siddharth I love building.",
     url: "https://siddharththakkar.xyz",
-    siteName: "Siddharth Thakkar (Sid Thakkar)",
+    siteName: "Siddharth Thakkar",
     images: [
       {
         url: "https://siddharththakkar.xyz/og-image.png",
         width: 1200,
         height: 630,
-        alt: "Siddharth Thakkar (Sid Thakkar) Portfolio",
+        alt: "Siddharth Thakkar",
       },
     ],
     locale: "en_US",
