@@ -115,17 +115,17 @@ export default function Projects() {
             className="flex flex-col bg-black/50 border border-blue-950 hover:border-blue-400 
                        transition-all duration-300 hover:scale-[1.02] w-full md:w-[calc(50%-0.75rem)]"
           >
-            <CardHeader className="pb-2"> 
-              <CardTitle className="text-blue-100 text-lg font-semibold line-clamp-1">
-                {project.title}
-              </CardTitle>
-              <div className="flex justify-between text-xs text-gray-400">
-                <span>{project.date}</span>
-                {project.association && <span className="ml-2">{project.association}</span>}
-              </div>
-            </CardHeader>
+          <CardHeader className="pb-2 text-left"> 
+            <CardTitle className="text-blue-100 text-lg font-semibold line-clamp-1 text-left">
+              {project.title}
+            </CardTitle>
+            <div className="flex justify-between text-xs text-gray-400">
+              <span>{project.date}</span>
+              {project.association && <span className="ml-2">{project.association}</span>}
+            </div>
+          </CardHeader>
 
-            <CardContent className="p-3 flex-grow flex flex-col justify-between">
+            <CardContent className="pb-2 flex-grow flex flex-col justify-between">
               <button
                 onClick={() => toggleProject(index)}
                 className="flex items-center gap-2 text-blue-100 hover:text-blue-400 transition-colors duration-200 mb-4"

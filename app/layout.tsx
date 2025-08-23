@@ -7,12 +7,64 @@ import type React from "react"
 const inter = Inter({ subsets: ["latin"] })
 
 export const metadata = {
-  title: "Siddharth Thakkar",
-  description: "Software Developer | MERN Stack | 3D Web Development",
+  metadataBase: new URL("https://siddharththakkar.xyz"),
+  title: {
+    default: "Siddharth Thakkar (Sid Thakkar) | Developer Portfolio",
+    template: "%s | Siddharth Thakkar (Sid Thakkar)",
+  },
+  description:
+    "Hi. I'm Siddharth I love building.",
+  keywords: [
+    "Siddharth Thakkar",
+    "Sid Thakkar",
+    "Siddharth Thakkar Portfolio",
+    "Sid Thakkar Portfolio",
+    "Siddharth Thakkar Developer",
+    "Sid Thakkar Developer",
+    "Siddharth Thakkar Software Engineer",
+    "Sid Thakkar Software Engineer",
+    "Siddharth Thakkar Full Stack",
+    "Sid Thakkar Full Stack",
+  ],
+  authors: [{ name: "Siddharth Thakkar", url: "https://siddharththakkar.xyz" }],
+  creator: "Siddharth Thakkar (Sid Thakkar)",
+  publisher: "Siddharth Thakkar (Sid Thakkar)",
+  alternates: {
+    canonical: "https://siddharththakkar.xyz",
+  },
   icons: {
     icon: "/faicon.svg",
-    apple: "/apple-touch-icon.",
+    apple: "/apple-touch-icon.png",
   },
+
+  openGraph: {
+    title: "Siddharth Thakkar (Sid Thakkar) | Official Portfolio",
+    description:
+      "Hi. I'm Siddharth I love building.",
+    url: "https://siddharththakkar.xyz",
+    siteName: "Siddharth Thakkar (Sid Thakkar)",
+    images: [
+      {
+        url: "https://siddharththakkar.xyz/og-image.png",
+        width: 1200,
+        height: 630,
+        alt: "Siddharth Thakkar (Sid Thakkar) Portfolio",
+      },
+    ],
+    locale: "en_US",
+    type: "website",
+  },
+
+  twitter: {
+    card: "summary_large_image",
+    title: "Siddharth Thakkar",
+    description:
+      "Hi. I'm Siddharth I love building.",
+    creator: "@woustachemax7",
+    images: ["https://siddharththakkar.xyz/og-image.png"],
+  },
+
+  category: "technology",
 }
 
 export default function RootLayout({
@@ -31,4 +83,3 @@ export default function RootLayout({
     </html>
   )
 }
-

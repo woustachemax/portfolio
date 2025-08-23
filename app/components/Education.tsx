@@ -38,7 +38,7 @@ export default function Education() {
         {educationData.map((edu, index) => (
           <AccordionItem key={index} value={`item-${index}`} className="border-none">
             <Card className="bg-black/50 border border-blue-950 hover:border-blue-400 hover:scale-[1.02] transition-all duration-300 backdrop-blur-sm">
-              <AccordionTrigger className="px-6 py-4 text-left w-full">
+              <AccordionTrigger className="px-6 py-4 text-left w-full no-underline hover:no-underline">
                 <div>
                   <h3 className="text-blue-100 font-semibold">{edu.school}</h3>
                   <p className="text-gray-400">{edu.degree}</p>
