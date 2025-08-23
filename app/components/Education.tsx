@@ -32,8 +32,8 @@ const educationData = [
 
 export default function Education() {
   return (
-    <section id="education" className="my-16 max-w-4xl mx-auto px-4">
-      <h2 className="text-3xl text-gray-500 font-bold mb-8">Education</h2>
+    <section id="education" className="my-16 max-w-6xl mx-auto px-4">
+      <h2 className="text-4xl text-gray-500 font-bold mb-8">Education</h2>
       <Accordion type="single" collapsible className="grid md:grid-cols-2 gap-6">
         {educationData.map((edu, index) => (
           <AccordionItem key={index} value={`item-${index}`} className="border-none">

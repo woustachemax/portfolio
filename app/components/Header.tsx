@@ -1,10 +1,9 @@
 "use client"
 
 import { useState, useEffect } from "react"
-import { Menu, X, Github, Linkedin } from "lucide-react"
+import { Github, Linkedin } from "lucide-react"
 
 export default function Header() {
-  const [isMenuOpen, setIsMenuOpen] = useState(false)
   const [activeSection, setActiveSection] = useState("")
   const [isScrolled, setIsScrolled] = useState(false)
 
@@ -30,12 +29,12 @@ export default function Header() {
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 20)
       const sections = navItems.map(item => document.getElementById(item.id))
-      const scrollPosition = window.scrollY + 100 
+      const scrollPosition = window.scrollY + 100
       let currentSection = ""
       for (let i = sections.length - 1; i >= 0; i--) {
         const section = sections[i]
         if (section) {
-          const sectionTop = section.offsetTop - 150 
+          const sectionTop = section.offsetTop - 150
           if (scrollPosition >= sectionTop) {
             currentSection = navItems[i].id
             break
@@ -52,122 +51,59 @@ export default function Header() {
   const scrollToSection = (sectionId: string) => {
     const section = document.getElementById(sectionId)
     if (section) {
-      const yOffset = -80 
+      const yOffset = -80
       const y = section.getBoundingClientRect().top + window.pageYOffset + yOffset
       window.scrollTo({ top: y, behavior: "smooth" })
-      setIsMenuOpen(false)
       setActiveSection(sectionId)
     }
   }
 
   return (
-    <header className="fixed bottom-8 left-1/2 transform -translate-x-1/2 z-50 transition-all duration-500 ease-out">
+    <header className="fixed bottom-6 left-1/2 transform -translate-x-1/2 z-50 transition-all duration-500 ease-out">
       <nav className="px-2">
-        <div className="flex justify-center items-center">
-          <div className={`hidden md:flex items-center transition-all duration-500 w-auto ${
-            isScrolled 
-              ? 'bg-black/80 backdrop-blur-xl border border-gray-500 rounded-full px-4 py-2 shadow-2xl' 
-              : 'bg-black/60 backdrop-blur-sm border border-gray-500 rounded-full px-4 py-2 shadow-lg'
-          }`}>
-            <div className="flex items-center">
-              {navItems.map((item, index) => (
-                <div key={item.id} className="flex items-center">
-                  <button
-                    onClick={() => scrollToSection(item.id)}
-                    className="px-4 py-2 text-sm font-medium transition-all duration-300 ease-out text-gray-200 hover:text-blue-200 hover:scale-105"
-                  >
-                    {item.label}
-                  </button>
-                  {index < navItems.length - 1 && (
-                    <span className="text-gray-400 mx-2">|</span>
-                  )}
-                </div>
-              ))}
-              <span className="text-gray-200 mx-2">|</span>
-              {socialItems.map((social, index) => (
-                <div key={social.label} className="flex items-center">
-                  <a
-                    href={social.href}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="px-4 py-2 text-gray-200 hover:text-blue-200 hover:scale-110 transition-all duration-300 flex items-center"
-                    aria-label={social.label}
-                  >
-                    <social.icon className="w-4 h-4 text-gray-200 hover:text-blue-200" />
-                  </a>
-                  {index < socialItems.length - 1 && (
-                    <span className="text-gray-400 mx-2">|</span>
-                  )}
-                </div>
-              ))}
-            </div>
-          </div>
-          <div className="md:hidden">
-            <button
-              onClick={() => setIsMenuOpen(!isMenuOpen)}
-              className="p-3 rounded-full transition-all duration-300 bg-black/60 backdrop-blur-sm border border-gray-200 text-gray-200 hover:text-blue-200"
-            >
-              {isMenuOpen ? <X className="w-6 h-6 text-gray-200 hover:text-blue-200" /> : <Menu className="w-6 h-6 text-gray-200 hover:text-blue-200" />}
-            </button>
-          </div>
-        </div>
-        <div className={`md:hidden absolute bottom-16 left-1/2 transform -translate-x-1/2 transition-all duration-500 ease-out overflow-hidden ${
-          isMenuOpen 
-            ? 'max-h-96 opacity-100 translate-y-0' 
-            : 'max-h-0 opacity-0 translate-y-4'
-        }`}>
-          <div className="bg-black/80 backdrop-blur-xl border border-gray-200 rounded-2xl p-2 shadow-2xl">
-            <ul className="space-y-1">
-              {navItems.map((item, index) => (
-                <li key={item.id}>
-                  <button
-                    onClick={() => scrollToSection(item.id)}
-                    className="w-full text-left px-4 py-3 rounded-xl transition-all duration-300 transform hover:scale-[1.02] text-gray-200 hover:text-blue-200"
-                    style={{
-                      animationDelay: `${index * 50}ms`,
-                      animation: isMenuOpen ? 'slideInUp 0.3s ease-out forwards' : 'none'
-                    }}
-                  >
-                    {item.label}
-                  </button>
-                </li>
-              ))}
-            </ul>
-            <div className="mt-1 pt-2 border-t border-gray-200">
-              <div className="space-y-1">
-                {socialItems.map((social, index) => (
-                  <a
-                    key={social.label}
-                    href={social.href}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="w-full flex items-center justify-center px-4 py-3 text-gray-200 hover:text-blue-200 hover:scale-[1.02] transition-all duration-300 rounded-xl"
-                    style={{
-                      animationDelay: `${(navItems.length + index) * 50}ms`,
-                      animation: isMenuOpen ? 'slideInUp 0.3s ease-out forwards' : 'none'
-                    }}
-                    aria-label={social.label}
-                  >
-                    <social.icon className="w-5 h-5 text-gray-200 hover:text-blue-200" />
-                  </a>
-                ))}
+        <div
+          className={`flex items-center justify-center transition-all duration-500 ${
+            isScrolled
+              ? "bg-black/80 backdrop-blur-xl border border-blue-950 rounded-full py-2 shadow-2xl"
+              : "bg-black/60 backdrop-blur-sm border border-blue-950 rounded-full py-2 shadow-lg"
+          } px-3 w-auto sm:w-auto min-w-[90vw] sm:min-w-0`}
+        >
+          <div className="flex items-center justify-center text-xs sm:text-sm gap-1 sm:gap-2">
+            {navItems.map((item, index) => (
+              <div key={item.id} className="flex items-center">
+                <button
+                  onClick={() => scrollToSection(item.id)}
+                  className={`px-2 sm:px-4 py-1 sm:py-2 font-medium transition-all duration-300 ease-out text-gray-200 hover:text-blue-200 hover:scale-105 ${
+                    activeSection === item.id ? "text-blue-300" : ""
+                  }`}
+                >
+                  {item.label}
+                </button>
+                {index < navItems.length - 1 && (
+                  <span className="text-gray-400 mx-1 sm:mx-2">|</span>
+                )}
               </div>
-            </div>
+            ))}
+            <span className="text-gray-200 mx-1 sm:mx-2">|</span>
+            {socialItems.map((social, index) => (
+              <div key={social.label} className="flex items-center">
+                <a
+                  href={social.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="px-2 sm:px-4 py-1 sm:py-2 text-gray-200 hover:text-blue-200 hover:scale-110 transition-all duration-300 flex items-center"
+                  aria-label={social.label}
+                >
+                  <social.icon className="w-4 h-4 sm:w-5 sm:h-5" />
+                </a>
+                {index < socialItems.length - 1 && (
+                  <span className="text-gray-400 mx-1 sm:mx-2">|</span>
+                )}
+              </div>
+            ))}
           </div>
         </div>
       </nav>
-      <style jsx>{`
-        @keyframes slideInUp {
-          from {
-            opacity: 0;
-            transform: translateY(20px);
-          }
-          to {
-            opacity: 1;
-            transform: translateY(0);
-          }
-        }
-      `}</style>
     </header>
   )
 }

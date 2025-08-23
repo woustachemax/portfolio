@@ -41,36 +41,28 @@
   }
 }
 
-::-webkit-scrollbar {
-  width: 6px;
-  height: 2px;
+*::-webkit-scrollbar {
+  width: 4px;
+  height: 4px;
 }
 
-::-webkit-scrollbar-track {
+*::-webkit-scrollbar-track {
   background: transparent;
 }
 
-::-webkit-scrollbar-thumb {
+*::-webkit-scrollbar-thumb {
   background-color: #1e3a8a;
   border-radius: 9999px;
 }
 
-::-webkit-scrollbar-thumb:hover {
+*::-webkit-scrollbar-thumb:hover {
   background-color: #3b82f6;
 }
 
-::-webkit-scrollbar-thumb::after {
-  content: "";
-  position: absolute;
-  bottom: -10px;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 0;
-  height: 0;
-  border-left: 6px solid transparent;
-  border-right: 6px solid transparent;
-  border-bottom: 10px solid #ff4500;
-  filter: blur(2px);
+/* Slim Scrollbar — Firefox */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: #1e3a8a transparent;
 }
 
 html {
@@ -78,6 +70,7 @@ html {
   font-size: 16px;
 }
 
+/* Animations */
 @keyframes pulse {
   0%, 100% {
     opacity: 1;
