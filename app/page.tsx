@@ -22,7 +22,7 @@ export default function Home() {
             </Button>
         </section>
 
-        <section id="about" className="my-32 bg-black/50 p-8 rounded-lg backdrop-blur-sm border border-gray-500 hover:border-blue-400">
+        <section id="about" className="my-32 bg-black/50 p-8 rounded-lg backdrop-blur-sm border border-blue-950 hover:border-blue-400">
           <h2 className="text-4xl font-bold mb-6 text-gray-500">About Me</h2>
           <div className="space-y-4 text-lg text-blue-100">
               <p>
