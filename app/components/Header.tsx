@@ -44,15 +44,14 @@ export default function Header() {
       setIsScrolled(window.scrollY > 20)
       
       const sections = navItems.map(item => document.getElementById(item.id))
-      const scrollPosition = window.scrollY + 100 // Reduced offset for better detection
+      const scrollPosition = window.scrollY + 100 
 
       let currentSection = ""
       
-      // Check sections from bottom to top for better accuracy
       for (let i = sections.length - 1; i >= 0; i--) {
         const section = sections[i]
         if (section) {
-          const sectionTop = section.offsetTop - 150 // Adjusted threshold
+          const sectionTop = section.offsetTop - 150 
           
           if (scrollPosition >= sectionTop) {
             currentSection = navItems[i].id
@@ -86,26 +85,25 @@ export default function Header() {
         <div className="flex justify-center items-center">
           <div className={`hidden md:flex items-center transition-all duration-500 w-auto ${
             isScrolled 
-              ? 'bg-black/80 backdrop-blur-xl border border-gray-500/50 rounded-full px-4 py-2 shadow-2xl' 
-              : 'bg-black/60 backdrop-blur-sm border border-gray-500/30 rounded-full px-4 py-2 shadow-lg'
+              ? 'bg-black/80 backdrop-blur-xl border border-blue-950 hover:blue-400 rounded-full px-4 py-2 shadow-2xl' 
+              : 'bg-black/60 backdrop-blur-sm border border-blue-950 hover:blue-400 rounded-full px-4 py-2 shadow-lg'
           }`}>
-            {/* Navigation Items and Social Links */}
             <div className="flex items-center">
               {navItems.map((item, index) => (
                 <div key={item.id} className="flex items-center">
                   <button
                     onClick={() => scrollToSection(item.id)}
-                    className="px-4 py-2 text-sm font-medium transition-all duration-300 ease-out text-gray-200 hover:text-blue-200 hover:scale-105"
+                    className="px-4 py-2 text-sm font-medium transition-all duration-300 ease-out text-blue-950 hover:text-blue-200 hover:scale-105"
                   >
                     {item.label}
                   </button>
                   {index < navItems.length - 1 && (
-                    <span className="text-gray-500 mx-2">|</span>
+                    <span className="text-blue-950 mx-2">|</span>
                   )}
                 </div>
               ))}
               
-              <span className="text-gray-500 mx-2">|</span>
+              <span className="text-blue-950 mx-2">|</span>
               
               {socialItems.map((social, index) => (
                 <div key={social.label} className="flex items-center">
@@ -113,7 +111,7 @@ export default function Header() {
                     href={social.href}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="px-4 py-2 text-gray-200 hover:text-blue-200 hover:scale-110 transition-all duration-300 flex items-center"
+                    className="px-4 py-2 text-blue-950 hover:text-blue-200 hover:scale-110 transition-all duration-300 flex items-center"
                     aria-label={social.label}
                   >
                     <social.icon className="w-4 h-4" />
@@ -163,7 +161,6 @@ export default function Header() {
               ))}
             </ul>
             
-            {/* Mobile Social Links */}
             <div className="mt-1 pt-2 border-t border-gray-500/30">
               <div className="space-y-1">
                 {socialItems.map((social, index) => (
