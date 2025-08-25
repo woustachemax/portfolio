@@ -13,7 +13,7 @@ export const metadata = {
     template: "%s | Siddharth Thakkar",
   },
   description:
-    "Hi. I'm Siddharth I love building.",
+    "Hi, I'm Siddharth, I love building.",
   keywords: [
     "Siddharth Thakkar",
     "Sid Thakkar",
@@ -40,7 +40,7 @@ export const metadata = {
   openGraph: {
     title: "Siddharth Thakkar",
     description:
-      "Hi. I'm Siddharth I love building.",
+      "Hi, I'm Siddharth, I love building.",
     url: "https://siddharththakkar.xyz",
     siteName: "Siddharth Thakkar",
     images: [
@@ -59,7 +59,7 @@ export const metadata = {
     card: "summary_large_image",
     title: "Siddharth Thakkar",
     description:
-      "Hi. I'm Siddharth I love building.",
+      "Hi, I'm Siddharth, I love building.",
     creator: "@woustachemax7",
     images: ["https://siddharththakkar.xyz/og-image.png"],
   },
