@@ -161,7 +161,7 @@ export default function Projects() {
                 </div>
               </div>
 
-              <div className="mt-6 space-y-3">
+              <div className="mt-6 mb-2 space-y-3">
                 {project.link && (
                   <a href={project.link} target="_blank" rel="noopener noreferrer" className="text-sm text-blue-100 hover:text-blue-400 flex items-center gap-2">
                     <Github className="w-4 h-4" />
