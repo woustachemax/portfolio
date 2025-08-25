@@ -161,20 +161,30 @@ export default function Projects() {
                 </div>
               </div>
 
-              <div className="mt-6 mb-2 space-y-3">
-                {project.link && (
-                  <a href={project.link} target="_blank" rel="noopener noreferrer" className="text-sm text-blue-100 hover:text-blue-400 flex items-center gap-2">
-                    <Github className="w-4 h-4" />
-                    <span className="font-semibold">Github Repository</span>
-                  </a>
-                )}
-                {project.live && (
-                  <a href={project.live} target="_blank" rel="noopener noreferrer" className="text-sm text-blue-100 hover:text-blue-400 flex items-center gap-2">
-                    <ExternalLink className="w-4 h-4" />
-                    <span className="font-semibold">Live Demo</span>
-                  </a>
-                )}
-              </div>
+              <div className="mt-6 mb-2 flex flex-auto space-x-20">
+                  {project.link && (
+                    <a
+                      href={project.link}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-sm text-blue-100 hover:text-blue-400 flex items-center gap-2"
+                    >
+                      <Github className="w-4 h-4" />
+                      <span className="font-semibold">Github Repository</span>
+                    </a>
+                  )}
+                  {project.live && (
+                    <a
+                      href={project.live}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-sm text-blue-100 hover:text-blue-400 flex items-center gap-2"
+                    >
+                      <ExternalLink className="w-4 h-4" />
+                      <span className="font-semibold">Live Demo</span>
+                    </a>
+                  )}
+               </div>
             </CardContent>
           </Card>
         ))}
