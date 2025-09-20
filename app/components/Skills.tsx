@@ -1,10 +1,11 @@
 import { Badge } from "@/components/ui/badge"
 
 const skills = [
-  "JavaScript", "TypeScript", "Python",
+  "JavaScript", "TypeScript", "Python","Java",
   "React", "Node.js", "Next.js",
   "Tailwind CSS", "PostgreSQL", "MongoDB",
-  "Three.js", "Docker", "AWS"
+  "Three.js", "Docker", "AWS", "React Native", "Spring Boot" ,
+  "Microservices"
 ]
 
 export default function Skills() {
