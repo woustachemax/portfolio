@@ -20,7 +20,7 @@ const projectsData = [
     ],
     "skills": ["Next.js", "TypeScript", "OAuth 2.0", "Spotify API", "YouTube API", "Apple Music API", "Prisma ORM", "PostgreSQL", "Tailwind CSS", "Vercel"],
     "link": "https://github.com/woustachemax/conv",
-    "live": "https://conv-olive.vercel.app"
+    "live": "https://conv.siddharththakkar.xyz/"
   },
   {
   "title": "Episteme",
@@ -37,7 +37,7 @@ const projectsData = [
   ],
   "skills": ["Next.js", "TypeScript", "Python", "GPT-4", "Web Scraping", "OAuth", "Prisma ORM", "PostgreSQL", "Vercel AI SDK", "Microservices", "Bias Detection", "AI Fact-Checking"],
   "link": "https://github.com/woustachemax/episteme",
-  "live": "https://episteme-indol.vercel.app/"
+  "live": "https://episteme.siddharththakkar.xyz/"
 },
   {
   title: "Watchman",
