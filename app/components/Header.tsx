@@ -19,10 +19,12 @@ export default function Header() {
     </svg>
   )
 
+  
+
   const socialItems = [
     { href: "https://www.linkedin.com/in/sidthakkar/", icon: Linkedin, label: "LinkedIn" },
     { href: "https://github.com/woustachemax", icon: Github, label: "GitHub Profile" },
-    { href: "https://x.com/woustachemax7", icon: XIcon, label: "X" }
+    { href: "https://x.com/woustachemax7", icon: XIcon, label: "X" }, 
   ]
 
   useEffect(() => {
@@ -106,6 +108,12 @@ export default function Header() {
               onClick={() => window.location.href = 'https://drive.google.com/file/d/1bGgFJCZaNBg42iJvYiAhsHiy1wguaGqx/view?usp=sharing'}
               className="px-2 sm:px-4 py-1 sm:py-2 text-gray-200 hover:text-blue-200 hover:scale-110 transition-all duration-300 cursor-pointer">
               Resume
+            </div>
+             <span className="text-gray-200 mx-1 sm:mx-2">|</span>
+            <div 
+              onClick={() => window.location.href = 'https://blog.siddharththakkar.xyz/'}
+              className="px-2 sm:px-4 py-1 sm:py-2 text-gray-200 hover:text-blue-200 hover:scale-110 transition-all duration-300 cursor-pointer">
+              Blog
             </div>
           </div>
         </div>
