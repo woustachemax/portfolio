@@ -10,7 +10,6 @@ export default function Header() {
   const navItems = [
     { id: "projects", label: "Projects" },
     { id: "skills", label: "Skills" },
-    { id: "github", label: "Activity" }
   ]
 
   const XIcon = () => (
