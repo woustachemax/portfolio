@@ -86,7 +86,6 @@ const projectsData = [
       "React",
       "Vite",
       "Tailwind CSS",
-      "Hono",
       "Cloudflare Workers",
       "Prisma",
       "Palantir Foundry",
