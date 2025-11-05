@@ -6,6 +6,24 @@ import { Github, ExternalLink } from "lucide-react"
 
 const projectsData = [
   {
+  "title": "QuackStack",
+  "date": "October 2025 - November 2025",
+  "association": "Open Source Project",
+  "description": "Built an intelligent CLI tool that indexes codebases using local AI embeddings, enabling conversational code exploration and universal context generation for all major AI coding assistants.",
+  "details": [
+    "Developed local embedding generation system for 100% private code analysis without external API calls.",
+    "Implemented AST-based code parsing with intelligent function/class extraction across 16+ programming languages.",
+    "Built interactive REPL with semantic search using cosine similarity and conversational AI responses.",
+    "Created universal context generator supporting Cursor, Windsurf, Cline, Continue, and Aider simultaneously.",
+    "Integrated multi-provider AI support (OpenAI, Claude, Gemini, DeepSeek, Mistral) with smart query routing.",
+    "Designed watch mode with file monitoring and auto-regeneration for always-fresh codebase context.",
+    "Architected PostgreSQL schema with efficient vector storage and project-level isolation for multi-project support."
+  ],
+  "skills": ["Node.js", "TypeScript", "Prisma ORM", "PostgreSQL", "AST Parsing", "Vector Embeddings", "Semantic Search", "OpenAI API", "Anthropic API", "Gemini API", "CLI Development"],
+  "link": "https://github.com/woustachemax/quackstack",
+  "live": "https://quackstack.siddharththakkar.xyz/"
+},
+  {
     "title": "Conv",
     "date": "July 2025 - August 2025", 
     "association": "Personal Project",
@@ -68,33 +86,6 @@ const projectsData = [
     ],
     skills: ["Next.js", "Express.js", "PostgreSQL", "Prisma", "Tailwind CSS", "Socket.io", "Authentication"],
     link: "https://github.com/woustachemax/sinkronize"
-  },
-  {
-    title: "Learning Path Generator MVP",
-    date: "March 2025",
-    association: "Personal Project",
-    description:
-      "Built a full-stack learning path generation MVP integrating GPT-4o via Palantir Foundry's AIP Logic, with secure authentication and a polished UI.",
-    details: [
-      "Created an AIP Logic function in Palantir Foundry to interact with GPT-4o for generating structured learning paths based on user goals",
-      "Built a React frontend with Vite, styled using Tailwind CSS, and enabled navigation via React Router",
-      "Implemented authentication and input validation using JWT and Zod respectively",
-      "Developed a backend using Hono running on Cloudflare Workers, with Prisma ORM for database interaction",
-      "Configured CORS and default route redirection to ensure smooth frontend-backend communication",
-    ],
-    skills: [
-      "React",
-      "Vite",
-      "Tailwind CSS",
-      "Cloudflare Workers",
-      "Prisma",
-      "Palantir Foundry",
-      "AIP Logic",
-      "OpenAI GPT-4o",
-      "JWT",
-      "Zod"
-    ],
-    link: "https://github.com/woustachemax/aip-app"
   }
 ];
 
