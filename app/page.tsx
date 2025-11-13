@@ -3,6 +3,7 @@
 import Education from "./components/Education"
 import Skills from "./components/Skills"
 import Projects from "./components/Projects"
+import MiniProjectsBlog from "./components/MiniProjectsBlogs"
 import ChangingTitle from "./components/ChangingTitle"
 import GitHubContributions from "./components/GitHub"
 
@@ -25,6 +26,7 @@ export default function Home() {
       <div className="w-full max-w-4xl mx-auto px-2 sm:px-4 space-y-12 sm:space-y-16">
         <Education />
         <Projects />
+        <MiniProjectsBlog /> 
         <Skills />
         <GitHubContributions />
       </div>
