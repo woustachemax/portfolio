@@ -11,7 +11,7 @@ const miniProjects = [
     tags: ["Bash", "CLI", "Typescript"],
   },
 ]
-
+ 
 const blogPosts = [
   {
     title: "I Built an AI Intern That Actually Works (No, Really)",
@@ -28,7 +28,7 @@ const blogPosts = [
   {
     title: "Beyond Just Understanding",
     link: "https://blog.siddharththakkar.xyz/blog-3",
-    pubDate: "2024-10-10",
+    pubDate: "2025-10-10",
     description: "How I figured out how to use Vector Embeddings!"
   },
 ]
