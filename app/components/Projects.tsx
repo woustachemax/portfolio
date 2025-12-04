@@ -6,6 +6,24 @@ import { Github, ExternalLink } from "lucide-react"
 
 const projectsData = [
   {
+  "title": "GlitchCN",
+  "date": "November 2025 - December 2025",
+  "association": "Open Source Project",
+  "description": "Built a retro-futuristic React component library for Next.js featuring 15+ production-ready components with terminal-styled aesthetics, animated scanline effects, and cyberpunk design elements.",
+  "details": [
+    "Designed and implemented 15+ highly customizable React components with TypeScript support and full type safety.",
+    "Engineered animated scanline effects, glowing neon borders, and smooth interactive states for authentic CRT display aesthetics.",
+    "Built shadcn/ui-compatible registry system enabling seamless component installation via CLI.",
+    "Developed custom monospace typography integration and dark teal color system optimized for developer interfaces.",
+    "Created comprehensive documentation site with live interactive component previews and API references.",
+    "Architected performance-optimized animations using Tailwind CSS and modern React patterns for smooth 60fps rendering.",
+    "Implemented full Next.js App Router compatibility with Server Components support and responsive design patterns."
+  ],
+  "skills": ["Next.js", "React", "TypeScript", "Tailwind CSS", "shadcn/ui", "Radix UI", "UI/UX Design", "CSS Animations"],
+  "link": "https://github.com/woustachemax/glitchcn-ui",
+  "live": "https://glitchcn-ui.vercel.app/"
+},
+  {
   "title": "QuackStack",
   "date": "October 2025 - November 2025",
   "association": "Open Source Project",
@@ -53,7 +71,7 @@ const projectsData = [
       "Designed a community editing system with AI validation to preserve article integrity.",
       "Built the full-stack app with Next.js, Vercel AI SDK, Prisma ORM, and PostgreSQL, ensuring seamless integration with Python services."
     ],
-    "skills": ["Next.js", "TypeScript", "Python", "GPT-4", "Web Scraping", "OAuth", "Prisma ORM", "PostgreSQL", "Vercel AI SDK", "Microservices", "Bias Detection", "AI Fact-Checking"],
+    "skills": ["Next.js", "TypeScript", "Python", "GPT-4", "Web Scraping", "OAuth", "Prisma ORM", "PostgreSQL", "Vercel AI SDK", "Microservices"],
     "link": "https://github.com/woustachemax/episteme",
     "live": "https://episteme.siddharththakkar.xyz/"
   },
@@ -69,23 +87,8 @@ const projectsData = [
       "Used Prisma ORM with PostgreSQL for robust uptime tick and validator data storage",
       "Designed a responsive monitoring dashboard using Next.js and Tailwind CSS",
     ],
-    skills: ["Next.js", "Express.js", "Prisma", "PostgreSQL", "Tailwind CSS", "Bun", "Turborepo", "Authentication"],
+    skills: ["Next.js", "Express.js", "Prisma", "PostgreSQL", "Tailwind CSS", "Bun", "Turborepo", "OAuth"],
     link: "https://github.com/woustachemax/watchman"
-  },
-  {
-    title: "Sinkronize",
-    date: "March 2025 - April 2025",
-    association: "Personal Project",
-    description:
-      "Built a real-time collaboration platform enabling over 50 users to work on shared projects and communicate instantly, with secure backend and responsive design.",
-    details: [
-      "Developed real-time chat functionality using Socket.io for seamless user communication",
-      "Engineered backend with Express, Prisma, and bcrypt-based authentication for data security",
-      "Designed a responsive, cross-platform UI using React and Tailwind CSS",
-      "Optimized backend logic and frontend responsiveness for scalability and speed",
-    ],
-    skills: ["Next.js", "Express.js", "PostgreSQL", "Prisma", "Tailwind CSS", "Socket.io", "Authentication"],
-    link: "https://github.com/woustachemax/sinkronize"
   }
 ];
 

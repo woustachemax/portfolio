@@ -10,9 +10,22 @@ const miniProjects = [
     link: "https://github.com/woustachemax/dev-backup",
     tags: ["Bash", "CLI", "Typescript"],
   },
+  {
+    title: "Sinkronize",
+    description:
+      "Built a real-time collaboration platform enabling over 50 users to work on shared projects and communicate instantly, with secure backend and responsive design.",
+    link: "https://github.com/woustachemax/sinkronize",
+    tags: ["Next.js", "Express.js", "PostgreSQL", "Prisma", "Tailwind CSS", "Socket.io", "Authentication"],
+  }
 ]
  
 const blogPosts = [
+   {
+    title: "I Built a Dev Environment Backup Tool Nobody Uses",
+    link: "https://blog.siddharththakkar.xyz/blog-6",
+    pubDate: "2025-11-16",
+    description: "How I created DevBackup to solve my own problems"
+  },
   {
     title: "I Built an AI Intern That Actually Works (No, Really)",
     link: "https://blog.siddharththakkar.xyz/blog-5",
@@ -24,13 +37,7 @@ const blogPosts = [
     link: "https://blog.siddharththakkar.xyz/blog-4",
     pubDate: "2025-11-01",
     description: "Understood why tRPC says 'Move fast, break nothing!'"
-  },
-  {
-    title: "Beyond Just Understanding",
-    link: "https://blog.siddharththakkar.xyz/blog-3",
-    pubDate: "2025-10-10",
-    description: "How I figured out how to use Vector Embeddings!"
-  },
+  }
 ]
 
 export default function MiniProjectsBlog() {
