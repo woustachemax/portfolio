@@ -20,7 +20,13 @@ const miniProjects = [
 ]
  
 const blogPosts = [
-   {
+  {
+    title: "I Built a Component Library (And You Might Actually Use It)!",
+    link: "https://blog.siddharththakkar.xyz/blog-7",
+    pubDate: "2025-12-08",
+    description: "How Glitchcn/ui came to be and why you should use it!"
+  },
+  {
     title: "I Built a Dev Environment Backup Tool Nobody Uses",
     link: "https://blog.siddharththakkar.xyz/blog-6",
     pubDate: "2025-11-16",
@@ -31,12 +37,6 @@ const blogPosts = [
     link: "https://blog.siddharththakkar.xyz/blog-5",
     pubDate: "2025-11-09",
     description: "How I developed QuackStack to be my best project yet"
-  },
-  {
-    title: "Stop RESTing!",
-    link: "https://blog.siddharththakkar.xyz/blog-4",
-    pubDate: "2025-11-01",
-    description: "Understood why tRPC says 'Move fast, break nothing!'"
   }
 ]
 
