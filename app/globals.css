@@ -3,41 +3,42 @@
 @tailwind utilities;
 
 
-html,body{
+html,
+body {
   overflow-y: scroll;
 }
 
 html::-webkit-scrollbar,
-body::-webkit-scrollbar{
+body::-webkit-scrollbar {
   display: none;
 }
 
-html{
-  -ms-overflow-style:none ;
+html {
+  -ms-overflow-style: none;
   scrollbar-width: none;
 }
 
 @layer base {
   :root {
-    --background: 0 0% 0%;
+    --background: 24 5% 5%;
     --foreground: 210 40% 98%;
-    --card: 0 0% 0%;
+    --card: 24 5% 5%;
     --card-foreground: 210 40% 98%;
-    --popover: 0 0% 0%;
+    --popover: 24 5% 5%;
     --popover-foreground: 210 40% 98%;
-    --primary: 270 100% 70%;
+    --primary: 217 91% 60%;
     --primary-foreground: 210 40% 98%;
-    --secondary: 240 50% 60%;
+    --secondary: 24 5% 15%;
     --secondary-foreground: 210 40% 98%;
-    --muted: 240 10% 20%;
+    --muted: 24 5% 15%;
     --muted-foreground: 240 5% 65%;
-    --accent: 270 50% 30%;
+    --accent: 24 5% 15%;
     --accent-foreground: 210 40% 98%;
     --destructive: 0 62.8% 30.6%;
     --destructive-foreground: 210 40% 98%;
-    --border: 270 50% 30%;
-    --input: 240 10% 20%;
-    --ring: 270 100% 70%;
+    --border: 24 5% 15%;
+    --input: 24 5% 10%;
+    --ring: 217 91% 60%;
     --radius: 0.5rem;
   }
 }
@@ -51,6 +52,7 @@ html{
     -ms-hyphens: auto;
     hyphens: auto;
   }
+
   body {
     @apply bg-background text-foreground;
   }
@@ -87,9 +89,12 @@ html {
 
 /* Animations */
 @keyframes pulse {
-  0%, 100% {
+
+  0%,
+  100% {
     opacity: 1;
   }
+
   50% {
     opacity: 0.5;
   }
@@ -103,9 +108,11 @@ html {
   0% {
     opacity: 0.5;
   }
+
   50% {
     opacity: 1;
   }
+
   100% {
     opacity: 0.5;
   }
@@ -135,14 +142,17 @@ html {
   html {
     font-size: 14px;
   }
+
   .text-6xl {
     font-size: 2.5rem;
     line-height: 1.2;
   }
+
   .text-2xl {
     font-size: 1.5rem;
     line-height: 1.3;
   }
+
   .container {
     padding-left: 1rem;
     padding-right: 1rem;

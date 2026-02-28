@@ -3,13 +3,10 @@
 import { useState, useEffect } from "react"
 
 const titles = [
-  "Software Developer",
-  "Full Stack Developer", 
-  "Frontend Developer",
-  "Backend Developer",
-  "Web Application Developer",
-  "Cloud Engineer",
-  "Database Engineer",
+  "Full Stack Engineer",
+  "Software Engineer",
+  "Devops Engineer",
+  "Data Engineer"
 ]
 
 export default function ChangingTitle() {
@@ -24,7 +21,7 @@ export default function ChangingTitle() {
   }, [])
 
   return (
-    <p className="text-xl md:text-2xl text-blue-300 transition-all duration-300">
+    <p className="text-xl md:text-2xl text-blue-100/60 transition-all duration-300">
       {titles[titleIndex]}
     </p>
   )

@@ -3,47 +3,48 @@
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion"
 import { Github, ExternalLink } from "lucide-react"
+import TechIcons from "./TechIcons"
 
 const projectsData = [
   {
-  "title": "GlitchCN",
-  "date": "November 2025 - December 2025",
-  "association": "Open Source Project",
-  "description": "Built a retro-futuristic React component library for Next.js featuring 15+ production-ready components with terminal-styled aesthetics, animated scanline effects, and cyberpunk design elements.",
-  "details": [
-    "Designed and implemented 15+ highly customizable React components with TypeScript support and full type safety.",
-    "Engineered animated scanline effects, glowing neon borders, and smooth interactive states for authentic CRT display aesthetics.",
-    "Built shadcn/ui-compatible registry system enabling seamless component installation via CLI.",
-    "Developed custom monospace typography integration and dark teal color system optimized for developer interfaces.",
-    "Created comprehensive documentation site with live interactive component previews and API references.",
-    "Architected performance-optimized animations using Tailwind CSS and modern React patterns for smooth 60fps rendering.",
-    "Implemented full Next.js App Router compatibility with Server Components support and responsive design patterns."
-  ],
-  "skills": ["Next.js", "React", "TypeScript", "Tailwind CSS", "shadcn/ui", "Radix UI", "UI/UX Design", "CSS Animations"],
-  "link": "https://github.com/woustachemax/glitchcn-ui",
-  "live": "https://glitchcn-ui.vercel.app/"
-},
+    "title": "GlitchCN",
+    "date": "November 2025 - December 2025",
+    "association": "Open Source Project",
+    "description": "Built a retro-futuristic React component library for Next.js featuring 15+ production-ready components with terminal-styled aesthetics, animated scanline effects, and cyberpunk design elements.",
+    "details": [
+      "Designed and implemented 15+ highly customizable React components with TypeScript support and full type safety.",
+      "Engineered animated scanline effects, glowing neon borders, and smooth interactive states for authentic CRT display aesthetics.",
+      "Built shadcn/ui-compatible registry system enabling seamless component installation via CLI.",
+      "Developed custom monospace typography integration and dark teal color system optimized for developer interfaces.",
+      "Created comprehensive documentation site with live interactive component previews and API references.",
+      "Architected performance-optimized animations using Tailwind CSS and modern React patterns for smooth 60fps rendering.",
+      "Implemented full Next.js App Router compatibility with Server Components support and responsive design patterns."
+    ],
+    "skills": ["Next.js", "React", "TypeScript", "Tailwind CSS", "shadcn/ui", "Radix UI", "UI/UX Design", "CSS Animations"],
+    "link": "https://github.com/woustachemax/glitchcn-ui",
+    "live": "https://glitchcn-ui.vercel.app/"
+  },
   {
-  "title": "QuackStack",
-  "date": "October 2025 - November 2025",
-  "association": "Open Source Project",
-  "description": "Built an intelligent CLI tool that indexes codebases using local AI embeddings, enabling conversational code exploration and universal context generation for all major AI coding assistants.",
-  "details": [
-    "Developed local embedding generation system for 100% private code analysis without external API calls.",
-    "Implemented AST-based code parsing with intelligent function/class extraction across 16+ programming languages.",
-    "Built interactive REPL with semantic search using cosine similarity and conversational AI responses.",
-    "Created universal context generator supporting Cursor, Windsurf, Cline, Continue, and Aider simultaneously.",
-    "Integrated multi-provider AI support (OpenAI, Claude, Gemini, DeepSeek, Mistral) with smart query routing.",
-    "Designed watch mode with file monitoring and auto-regeneration for always-fresh codebase context.",
-    "Architected PostgreSQL schema with efficient vector storage and project-level isolation for multi-project support."
-  ],
-  "skills": ["Node.js", "TypeScript", "Prisma ORM", "PostgreSQL", "AST Parsing", "Vector Embeddings", "Semantic Search", "OpenAI API", "Anthropic API", "Gemini API", "CLI Development"],
-  "link": "https://github.com/woustachemax/quackstack",
-  "live": "https://quackstack.siddharththakkar.xyz/"
-},
+    "title": "QuackStack",
+    "date": "October 2025 - November 2025",
+    "association": "Open Source Project",
+    "description": "Built an intelligent CLI tool that indexes codebases using local AI embeddings, enabling conversational code exploration and universal context generation for all major AI coding assistants.",
+    "details": [
+      "Developed local embedding generation system for 100% private code analysis without external API calls.",
+      "Implemented AST-based code parsing with intelligent function/class extraction across 16+ programming languages.",
+      "Built interactive REPL with semantic search using cosine similarity and conversational AI responses.",
+      "Created universal context generator supporting Cursor, Windsurf, Cline, Continue, and Aider simultaneously.",
+      "Integrated multi-provider AI support (OpenAI, Claude, Gemini, DeepSeek, Mistral) with smart query routing.",
+      "Designed watch mode with file monitoring and auto-regeneration for always-fresh codebase context.",
+      "Architected PostgreSQL schema with efficient vector storage and project-level isolation for multi-project support."
+    ],
+    "skills": ["Node.js", "TypeScript", "Prisma ORM", "PostgreSQL", "Next.js", "Bash", "Vercel", "Vector Embeddings", "Semantic Search", "OpenAI API", "Anthropic API", "Gemini API", "CLI Development"],
+    "link": "https://github.com/woustachemax/quackstack",
+    "live": "https://quackstack.siddharththakkar.xyz/"
+  },
   {
     "title": "Conv",
-    "date": "July 2025 - August 2025", 
+    "date": "July 2025 - August 2025",
     "association": "Personal Project",
     "description": "Built a seamless playlist conversion tool that transfers music collections between Spotify, YouTube Music, and Apple Music with intelligent track matching and real-time sync capabilities.",
     "details": [
@@ -71,7 +72,7 @@ const projectsData = [
       "Designed a community editing system with AI validation to preserve article integrity.",
       "Built the full-stack app with Next.js, Vercel AI SDK, Prisma ORM, and PostgreSQL, ensuring seamless integration with Python services."
     ],
-    "skills": ["Next.js", "TypeScript", "Python", "GPT-4", "Web Scraping", "OAuth", "Prisma ORM", "PostgreSQL", "Vercel AI SDK", "Microservices"],
+    "skills": ["Next.js", "TypeScript", "Python", "Vercel", "PostgreSQL", "Express.js", "GPT-4", "Web Scraping", "OAuth", "Prisma ORM", "Vercel AI SDK", "Microservices"],
     "link": "https://github.com/woustachemax/episteme",
     "live": "https://episteme.siddharththakkar.xyz/"
   },
@@ -100,18 +101,19 @@ export default function Projects() {
         {projectsData.map((project, index) => (
           <Accordion key={index} type="single" collapsible className="w-full">
             <AccordionItem value={`project-${index}`} className="border-none">
-              <Card className="bg-black/50 border border-blue-950 hover:border-blue-400 hover:scale-[1.02] transition-all duration-300 backdrop-blur-sm">
+              <Card className="bg-stone-900/20 border border-stone-800/50 hover:border-stone-700 hover:scale-[1.01] transition-all duration-300 backdrop-blur-sm">
                 <div className="px-6 pt-4">
                   <CardHeader className="p-0 w-full">
-                    <CardTitle className="text-blue-100 text-lg font-semibold text-left">
+                    <CardTitle className="text-blue-100 text-lg font-semibold text-left flex justify-between items-start">
                       {project.title}
+                      <TechIcons skills={project.skills} colored={true} className="scale-75 origin-top-right ml-2" />
                     </CardTitle>
                     <div className="flex justify-between text-xs text-gray-400 mt-1">
                       <span>{project.date}</span>
                       {project.association && <span className="ml-2">{project.association}</span>}
                     </div>
                   </CardHeader>
-                  
+
                   <div className="mt-4 flex gap-6 pb-2">
                     {project.link && (
                       <a
@@ -139,11 +141,11 @@ export default function Projects() {
                     )}
                   </div>
                 </div>
-                
+
                 <AccordionTrigger className="px-6 pb-4 text-left w-full no-underline hover:no-underline">
-                  <span className="text-sm font-semibold text-blue-100">View Details</span>
+                  <span className="text-sm font-semibold text-gray-300 group-hover:text-blue-200">View Details</span>
                 </AccordionTrigger>
-                
+
                 <AccordionContent className="px-6 pb-4">
                   <CardContent className="p-0">
                     <p className="mb-4 text-blue-100 text-sm">{project.description}</p>
@@ -156,13 +158,13 @@ export default function Projects() {
                       <h4 className="font-semibold mb-2 text-blue-100 text-sm">Technologies:</h4>
                       <div className="flex flex-wrap gap-2">
                         {project.skills.map((skill, idx) => (
-                          <span key={idx} className="text-xs bg-blue-950 text-blue-200 px-2 py-1 rounded hover:text-white transition-colors duration-200">
+                          <span key={idx} className="text-xs bg-stone-900/50 text-blue-200/70 border border-stone-800 px-2 py-1 rounded hover:text-white transition-colors duration-200">
                             {skill}
                           </span>
                         ))}
                       </div>
                     </div>
-                    
+
 
                   </CardContent>
                 </AccordionContent>

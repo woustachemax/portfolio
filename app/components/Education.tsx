@@ -37,7 +37,7 @@ export default function Education() {
       <Accordion type="single" collapsible className="grid md:grid-cols-2 gap-6">
         {educationData.map((edu, index) => (
           <AccordionItem key={index} value={`item-${index}`} className="border-none">
-            <Card className="bg-black/50 border border-blue-950 hover:border-blue-400 hover:scale-[1.02] transition-all duration-300 backdrop-blur-sm">
+            <Card className="bg-stone-900/20 border border-stone-800/50 hover:border-stone-700 hover:scale-[1.01] transition-all duration-300 backdrop-blur-sm">
               <AccordionTrigger className="px-6 py-4 text-left w-full no-underline hover:no-underline">
                 <div>
                   <h3 className="text-blue-100 font-semibold">{edu.school}</h3>

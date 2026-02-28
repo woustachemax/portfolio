@@ -1,34 +1,25 @@
-import { Badge } from "@/components/ui/badge"
+import TechIcons from "./TechIcons"
 
 const skills = [
-  "JavaScript", "TypeScript", "Python","Java",
-  "React", "Node.js", "Next.js",
-  "Tailwind CSS", "PostgreSQL", "MongoDB",
-  "Three.js", "Docker", "AWS", "React Native", "Spring Boot" ,
-  "Microservices"
+  "JavaScript", "TypeScript", "Python",
+  "React", "Node.js", "Next.js", "FastAPI",
+  "Tailwind CSS", "PostgreSQL", "MongoDB", "MySQL",
+  "Docker", "React Native", "Pandas", "NumPy", "PyTorch"
 ]
 
 export default function Skills() {
   return (
     <section id="skills" className=" max-w-6xl mx-auto px-4 my-32">
-      <h2 className="text-4xl font-bold mb-8 text-gray-500">Skills</h2>
-      <div className="flex flex-wrap gap-2">
-        {skills.map((skill, index) => (
-          <Badge
-            key={skill}
-            variant="secondary"
-            className="px-3 py-1.5 text-sm font-medium bg-blue-950 text-blue-200
-                       hover:bg-blue-950 hover:text-white hover:scale-105
-                       transition-all duration-200 border-0 rounded-md"
-            style={{
-              animationDelay: `${index * 50}ms`,
-              animation: "fadeInUp 0.45s ease-out forwards"
-            }}
-          >
-            {skill}
-          </Badge>
-        ))}
-      </div>
+      <h2 className="text-4xl font-bold mb-8 text-gray-500">Stack</h2>
+      <TechIcons
+        skills={skills}
+        colored={true}
+        variant="square"
+        size="lg"
+        noBorder={true}
+        className="flex-wrap gap-6"
+        limit={skills.length}
+      />
 
       <style jsx>{`
         @keyframes fadeInUp {

@@ -74,7 +74,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" className="dark">
-      <body className={`${inter.className} bg-black text-white`}>
+      <body className={`${inter.className} bg-stone-950 text-white`}>
         <SpaceBackground>
           <Header />
           <main className="container mx-auto px-4 py-8">{children}</main>

@@ -6,15 +6,16 @@ export default function GitHubContributions() {
       <h2 className="text-4xl text-gray-500 font-bold mb-6 sm:mb-8">
         GitHub Activity
       </h2>
-      <div className="bg-black/60 backdrop-blur-sm border border-blue-950 
-                      hover:border-blue-400 rounded-xl p-4 sm:p-6 
-                      hover:scale-[1.02] transition-all duration-300">
+      <div className="bg-stone-900/20 backdrop-blur-sm border border-stone-800/50 
+                      hover:border-stone-700 rounded-xl p-4 sm:p-6 
+                      transition-all duration-300">
+
         <div className="flex justify-center">
-          <img 
-            src="https://ghchart.rshah.org/E1C575/woustachemax" 
-            alt="GitHub Contributions" 
-            className="w-full sm:max-w-4xl rounded-lg invert" 
-            loading="lazy" 
+          <img
+            src="https://ghchart.rshah.org/3b82f6/woustachemax"
+            alt="GitHub Contributions"
+            className="w-full sm:max-w-4xl rounded-lg invert hue-rotate-180"
+            loading="lazy"
           />
         </div>
       </div>

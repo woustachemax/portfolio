@@ -9,7 +9,7 @@ export default function SocialLinks() {
           href="https://www.linkedin.com/in/sidthakkar/"
           target="_blank"
           rel="noopener noreferrer"
-          className="text-primary hover:text-primary/80 transition-colors"
+          className="text-primary hover:text-blue-200 transition-colors"
         >
           <Linkedin size={24} />
         </a>
