@@ -20,7 +20,7 @@ const projectsData = [
       "Architected performance-optimized animations using Tailwind CSS and modern React patterns for smooth 60fps rendering.",
       "Implemented full Next.js App Router compatibility with Server Components support and responsive design patterns."
     ],
-    "skills": ["Next.js", "React", "TypeScript", "Tailwind CSS", "shadcn/ui", "Radix UI", "UI/UX Design", "CSS Animations"],
+    "skills": ["Next.js", "React", "TypeScript", "Tailwind CSS", "shadcn/ui", "Figma", "Radix UI", "UI/UX Design", "CSS Animations"],
     "link": "https://github.com/woustachemax/glitchcn-ui",
     "live": "https://glitchcn-ui.vercel.app/"
   },
