@@ -22,22 +22,22 @@ const miniProjects = [
 
 const blogPosts = [
   {
-    title: "I Built a Dev Environment Backup Tool Nobody Uses",
-    link: "https://blog.siddharththakkar.xyz/blog-6",
-    pubDate: "2025-11-16",
-    description: "How I created DevBackup to solve my own problems"
+    title: "FastAPI, JWT, and SQLAlchemy: Building APIs That Don't Break ",
+    link: "https://blog.siddharththakkar.xyz/blog-11",
+    pubDate: "2026-02-25",
+    description: "How I got into backends in Python using FastAPI, JWT, and SQLAlchemy"
   },
   {
-    title: "I Built an AI Intern That Actually Works (No, Really)",
-    link: "https://blog.siddharththakkar.xyz/blog-5",
-    pubDate: "2025-11-09",
-    description: "How I developed QuackStack to be my best project yet"
+    title: "Redis, WebSockets, and Why Microservices Don't Actually Suck ",
+    link: "https://blog.siddharththakkar.xyz/blog-10",
+    pubDate: "2026-01-18",
+    description: "How I went under the rabbit-hole of Microservices"
   },
   {
-    title: "Stop RESTing!",
-    link: "https://blog.siddharththakkar.xyz/blog-4",
-    pubDate: "2025-11-01",
-    description: "Understood why tRPC says 'Move fast, break nothing!'"
+    title: "My Unrealistic Goals for January 2026 (And Why I'll Probably Fail)",
+    link: "https://blog.siddharththakkar.xyz/blog-9",
+    pubDate: "2025-12-30",
+    description: "The goals I set for January 2026"
   }
 ]
 
