@@ -48,6 +48,10 @@ const iconMap: Record<string, string> = {
     "numpy": "numpy",
     "pytorch": "pytorch",
     "mysql": "mysql",
+    "expo": "expo",
+    "linux": "linux",
+    "git": "git",
+    "cpp": "cplusplus",
 }
 
 import {
