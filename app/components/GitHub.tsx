@@ -8,9 +8,9 @@ export default function GitHubContributions() {
       </h2>
       <div className="bg-stone-900/20 backdrop-blur-sm border border-stone-800/50 
                       hover:border-stone-700 rounded-xl p-4 sm:p-6 
-                      transition-all duration-300">
+                      transition-all duration-300 overflow-x-auto">
 
-        <div className="flex justify-center">
+        <div className="flex justify-center min-w-[600px] sm:min-w-0">
           <img
             src="https://ghchart.rshah.org/3b82f6/woustachemax"
             alt="GitHub Contributions"

@@ -15,7 +15,6 @@ export default function Skills() {
       </div>
 
       <div className="relative w-full" style={{ animation: "fadeInUp 0.8s ease-out forwards" }}>
-        {/* Edge Gradient */}
         <div className="absolute inset-y-0 left-0 w-32 bg-gradient-to-r from-stone-950 to-transparent z-10 pointer-events-none" />
         <div className="absolute inset-y-0 right-0 w-32 bg-gradient-to-l from-stone-950 to-transparent z-10 pointer-events-none" />
 

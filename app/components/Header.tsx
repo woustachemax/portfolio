@@ -6,6 +6,7 @@ import { Github, Linkedin } from "lucide-react"
 export default function Header() {
   const [activeSection, setActiveSection] = useState("")
   const [isScrolled, setIsScrolled] = useState(false)
+  const [isAtBottom, setIsAtBottom] = useState(false)
 
   const navItems = [
     { id: "projects", label: "Projects" },
@@ -29,6 +30,13 @@ export default function Header() {
   useEffect(() => {
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 20)
+
+      // Check if user is at the bottom of the page
+      const windowHeight = window.innerHeight
+      const documentHeight = document.documentElement.scrollHeight
+      const scrollTop = window.scrollY
+      setIsAtBottom(scrollTop + windowHeight >= documentHeight - 10)
+
       const sections = navItems.map(item => document.getElementById(item.id))
       const scrollPosition = window.scrollY + 100
       let currentSection = ""
@@ -60,7 +68,10 @@ export default function Header() {
   }
 
   return (
-    <header className="fixed bottom-6 left-1/2 transform -translate-x-1/2 z-50 transition-all duration-500 ease-out">
+    <header
+      className={`fixed left-1/2 transform -translate-x-1/2 z-50 transition-all duration-500 ease-out`}
+      style={{ bottom: isAtBottom ? '21px' : '24px' }}
+    >
       <nav className="px-2">
         <div
           className={`flex items-center justify-center transition-all duration-500 ${isScrolled
