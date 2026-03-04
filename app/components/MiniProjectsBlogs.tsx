@@ -22,6 +22,12 @@ const miniProjects = [
 
 const blogPosts = [
   {
+    title: "Maybe the gatekeepers were right",
+    link: "https://blog.siddharththakkar.xyz/blog-12",
+    pubDate: "2026-03-04",
+    description: "Lower-level knowledge is quietly becoming the most underrated skill in the AI era."
+  },
+  {
     title: "FastAPI, JWT, and SQLAlchemy: Building APIs That Don't Break ",
     link: "https://blog.siddharththakkar.xyz/blog-11",
     pubDate: "2026-02-25",
@@ -32,12 +38,6 @@ const blogPosts = [
     link: "https://blog.siddharththakkar.xyz/blog-10",
     pubDate: "2026-01-18",
     description: "How I went under the rabbit-hole of Microservices"
-  },
-  {
-    title: "My Unrealistic Goals for January 2026 (And Why I'll Probably Fail)",
-    link: "https://blog.siddharththakkar.xyz/blog-9",
-    pubDate: "2025-12-30",
-    description: "The goals I set for January 2026"
   }
 ]
 
