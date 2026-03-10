@@ -2,27 +2,26 @@
 
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion"
-import { Github, ExternalLink } from "lucide-react"
+import { Github, ExternalLink, YoutubeIcon } from "lucide-react"
 import TechIcons from "./TechIcons"
 
 const projectsData = [
   {
-    "title": "GlitchCN",
+    "title": "GlitchCn/ui",
     "date": "November 2025 - December 2025",
     "association": "Open Source Project",
     "description": "Built a retro-futuristic React component library for Next.js featuring 15+ production-ready components with terminal-styled aesthetics, animated scanline effects, and cyberpunk design elements.",
     "details": [
-      "Designed and implemented 15+ highly customizable React components with TypeScript support and full type safety.",
-      "Engineered animated scanline effects, glowing neon borders, and smooth interactive states for authentic CRT display aesthetics.",
-      "Built shadcn/ui-compatible registry system enabling seamless component installation via CLI.",
-      "Developed custom monospace typography integration and dark teal color system optimized for developer interfaces.",
-      "Created comprehensive documentation site with live interactive component previews and API references.",
-      "Architected performance-optimized animations using Tailwind CSS and modern React patterns for smooth 60fps rendering.",
-      "Implemented full Next.js App Router compatibility with Server Components support and responsive design patterns."
+      "Built and published open-source React component library with 15+ production-grade components and full TypeScript support; 50+ GitHub stars.",
+      "Engineered custom shadcn/ui CLI registry with npm package support for individual or bulk component installs.",
+      "Implemented animated scanline effects, glowing borders, and interactive states with clean TypeScript component APIs.",
+      "Featured on YouTube tutorials and launched on Product Hunt; received community adoption across production applications.",
+      "github.com/woustachemax/glitchcn-ui | glitchcn-ui.vercel.app | youtu.be/15ZVQVlNR-o"
     ],
-    "skills": ["Next.js", "React", "TypeScript", "Tailwind CSS", "shadcn/ui", "Figma", "Radix UI", "UI/UX Design", "CSS Animations"],
+    "skills": ["Next.js", "React", "TypeScript", "Tailwind CSS", "shadcn/ui", "Radix UI"],
     "link": "https://github.com/woustachemax/glitchcn-ui",
-    "live": "https://glitchcn-ui.vercel.app/"
+    "live": "https://glitchcn-ui.vercel.app/",
+    "youtube": "https://youtu.be/15ZVQVlNR-o"
   },
   {
     "title": "QuackStack",
@@ -30,19 +29,17 @@ const projectsData = [
     "association": "Open Source Project",
     "description": "Built an intelligent CLI tool that indexes codebases using local AI embeddings, enabling conversational code exploration and universal context generation for all major AI coding assistants.",
     "details": [
-      "Developed local embedding generation system for 100% private code analysis without external API calls.",
-      "Implemented AST-based code parsing with intelligent function/class extraction across 16+ programming languages.",
-      "Built interactive REPL with semantic search using cosine similarity and conversational AI responses.",
-      "Created universal context generator supporting Cursor, Windsurf, Cline, Continue, and Aider simultaneously.",
-      "Integrated multi-provider AI support (OpenAI, Claude, Gemini, DeepSeek, Mistral) with smart query routing.",
-      "Designed watch mode with file monitoring and auto-regeneration for always-fresh codebase context.",
-      "Architected PostgreSQL schema with efficient vector storage and project-level isolation for multi-project support."
+      "Built and published npm package with TypeScript CLI interface; 3K+ downloads, zero-config setup, incremental re-indexing, and watch mode for always-fresh context.",
+      "Engineered 100% local vector embedding pipeline across 15+ languages using AST-based parsing with 87%+ retrieval relevance, with no external API calls for embeddings.",
+      "Architected extensible provider abstraction supporting 6 LLM backends (OpenAI, Claude, Gemini, DeepSeek, Grok, Mistral) behind a unified interface with latency monitoring.",
+      "Integrated git history enrichment into the index; surfaces commit authorship, file ownership, and recent changes alongside every query result.",
+      "Auto-generates context files for 5 AI IDEs simultaneously (Cursor, Windsurf, Cline, Continue, Aider) from a single command.",
+      "github.com/woustachemax/QuackStack | quackstack.siddharththakkar.xyz"
     ],
-    "skills": ["Node.js", "TypeScript", "Prisma ORM", "PostgreSQL", "Next.js", "Bash", "Vercel", "Vector Embeddings", "Semantic Search", "OpenAI API", "Anthropic API", "Gemini API", "CLI Development"],
+    "skills": ["Node.js", "TypeScript", "PostgreSQL", "Prisma ORM", "Bash"],
     "link": "https://github.com/woustachemax/quackstack",
     "live": "https://quackstack.siddharththakkar.xyz/"
-  },
-  {
+  }, {
     "title": "Conv",
     "date": "July 2025 - August 2025",
     "association": "Personal Project",
@@ -63,16 +60,16 @@ const projectsData = [
     "title": "Episteme",
     "date": "July 2025",
     "association": "Personal Project",
-    "description": "Built a full-stack AI-powered platform that generates and curates unbiased Wikipedia-style articles using GPT-4 and real-time web parsing, with automated fact-checking and editorial oversight.",
+    "description": "Built a full-stack Wikipedia search and bias analysis platform that surfaces how articles are written, not just what they say, with community-driven editorial workflows and local AI-powered fact-checking.",
     "details": [
-      "Engineered an AI-driven article generator using GPT-4 to produce topic-specific, fact-based content.",
-      "Integrated real-time web scraping pipelines to enrich articles with current and reliable data sources.",
-      "Developed a Python microservices backend for fact-checking, bias detection, and source verification.",
-      "Implemented dual authentication (Google OAuth and credentials) with role-based access and rate limiting.",
-      "Designed a community editing system with AI validation to preserve article integrity.",
-      "Built the full-stack app with Next.js, Vercel AI SDK, Prisma ORM, and PostgreSQL, ensuring seamless integration with Python services."
+      "Engineered local bias analysis engine scoring articles across positive, negative, opinion, and absolutist language patterns with a confidence score and tiered alert system (Moderate, High, Critical).",
+      "Built community suggestion system with text-selection based edit submissions, voting and approval workflows, and direct Wikipedia submission queue with admin oversight.",
+      "Implemented article caching layer on PostgreSQL to eliminate redundant Wikipedia API calls, with sections capped and key facts extracted for performance.",
+      "Designed pluggable fact-checking architecture where users configure their own external APIs locally, with zero API keys ever leaving the browser.",
+      "Implemented dual authentication with Google OAuth and credentials-based signup, role-based access control, and adaptive per-user rate limiting.",
+      "github.com/woustachemax/episteme | episteme.siddharththakkar.xyz"
     ],
-    "skills": ["Next.js", "TypeScript", "Python", "Vercel", "PostgreSQL", "Express.js", "GPT-4", "Web Scraping", "OAuth", "Prisma ORM", "Vercel AI SDK", "Microservices"],
+    "skills": ["Next.js", "TypeScript", "Python", "PostgreSQL", "Prisma ORM", "Tailwind CSS", "Framer Motion", "Google OAuth"],
     "link": "https://github.com/woustachemax/episteme",
     "live": "https://episteme.siddharththakkar.xyz/"
   },
@@ -139,6 +136,18 @@ export default function Projects() {
                         <span className="font-semibold">Live Demo</span>
                       </a>
                     )}
+                    {project.youtube && (
+                      <a
+                        href={project.youtube}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="text-sm text-blue-100 hover:text-blue-400 flex items-center gap-2"
+                        onClick={(e) => e.stopPropagation()}
+                      >
+                        <YoutubeIcon className="w-4 h-4" />
+                        <span className="font-semibold">Press</span>
+                      </a>
+                    )}
                   </div>
                 </div>
 
@@ -154,7 +163,7 @@ export default function Projects() {
                         <li key={idx} className="text-sm">{detail}</li>
                       ))}
                     </ul>
-                    <div className="mt-4">
+                    {/* <div className="mt-4">
                       <h4 className="font-semibold mb-2 text-blue-100 text-sm">Technologies:</h4>
                       <div className="flex flex-wrap gap-2">
                         {project.skills.map((skill, idx) => (
@@ -163,7 +172,7 @@ export default function Projects() {
                           </span>
                         ))}
                       </div>
-                    </div>
+                    </div> */}
 
 
                   </CardContent>
