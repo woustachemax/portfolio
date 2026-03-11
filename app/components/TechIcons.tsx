@@ -97,7 +97,7 @@ export default function TechIcons({
         <TooltipProvider>
             <div className={`flex items-center ${variant === "circle" ? "-space-x-2" : "gap-4"} ${className}`}>
                 {validSkills.map((skill, index) => {
-                    const isDarkIcon = ["next.js", "nextdotjs", "vercel", "express", "express.js", "apple", "apple music api", "bun", "socket.io", "shadcn/ui", "radixui"].includes(skill)
+                    const isDarkIcon = ["next.js", "nextdotjs", "vercel", "express", "express.js", "apple", "apple music api", "bun", "socket.io", "shadcn/ui", "radixui", "figma"].includes(skill)
                     const iconSlug = iconMap[skill]
 
                     const iconUrl = isDarkIcon && colored

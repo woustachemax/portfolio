@@ -16,9 +16,8 @@ const projectsData = [
       "Engineered custom shadcn/ui CLI registry with npm package support for individual or bulk component installs.",
       "Implemented animated scanline effects, glowing borders, and interactive states with clean TypeScript component APIs.",
       "Featured on YouTube tutorials and launched on Product Hunt; received community adoption across production applications.",
-      "github.com/woustachemax/glitchcn-ui | glitchcn-ui.vercel.app | youtu.be/15ZVQVlNR-o"
     ],
-    "skills": ["Next.js", "React", "TypeScript", "Tailwind CSS", "shadcn/ui", "Radix UI"],
+    "skills": ["Next.js", "React", "TypeScript", "Tailwind CSS", "shadcn/ui", "Figma"],
     "link": "https://github.com/woustachemax/glitchcn-ui",
     "live": "https://glitchcn-ui.vercel.app/",
     "youtube": "https://youtu.be/15ZVQVlNR-o"
@@ -34,7 +33,6 @@ const projectsData = [
       "Architected extensible provider abstraction supporting 6 LLM backends (OpenAI, Claude, Gemini, DeepSeek, Grok, Mistral) behind a unified interface with latency monitoring.",
       "Integrated git history enrichment into the index; surfaces commit authorship, file ownership, and recent changes alongside every query result.",
       "Auto-generates context files for 5 AI IDEs simultaneously (Cursor, Windsurf, Cline, Continue, Aider) from a single command.",
-      "github.com/woustachemax/QuackStack | quackstack.siddharththakkar.xyz"
     ],
     "skills": ["Node.js", "TypeScript", "PostgreSQL", "Prisma ORM", "Bash"],
     "link": "https://github.com/woustachemax/quackstack",
@@ -67,7 +65,6 @@ const projectsData = [
       "Implemented article caching layer on PostgreSQL to eliminate redundant Wikipedia API calls, with sections capped and key facts extracted for performance.",
       "Designed pluggable fact-checking architecture where users configure their own external APIs locally, with zero API keys ever leaving the browser.",
       "Implemented dual authentication with Google OAuth and credentials-based signup, role-based access control, and adaptive per-user rate limiting.",
-      "github.com/woustachemax/episteme | episteme.siddharththakkar.xyz"
     ],
     "skills": ["Next.js", "TypeScript", "Python", "PostgreSQL", "Prisma ORM", "Tailwind CSS", "Framer Motion", "Google OAuth"],
     "link": "https://github.com/woustachemax/episteme",
