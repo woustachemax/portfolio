@@ -30,7 +30,7 @@ const blogPosts = [
   {
   title: "Karpathy Taught Me Micrograd, So I Made It Move",
   link: "https://blog.siddharththakkar.xyz/blog-13",
-  pubDate: "2026-04-07",
+  pubDate: "2026-04-03",
   description: "3Blue1Brown infected me, Karpathy's video was good but I needed it to move, so I spent a few hours building the thing I wanted to watch."
 },
   {
