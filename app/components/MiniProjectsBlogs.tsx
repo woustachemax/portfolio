@@ -6,6 +6,12 @@ import TechIcons from "./TechIcons"
 
 const miniProjects = [
   {
+  title: "micrograd viz",
+  description: "Interactive browser-based visualizer on top of Andrej Karpathy's micrograd engine. Ports the full Value, Neuron, Layer, and MLP classes to JS — covers computation graphs, single neuron backprop, MLP architecture with weight visualization, and a live training loop on concentric rings.",
+  link: "https://woustachemax.github.io/micrograd-viz/",
+  tags: ["JavaScript", "HTML", "CSS"],
+},
+  {
     title: "DevBackup",
     description: "Cross-platform bash tool to backup and restore dev environments across computers",
     link: "https://github.com/woustachemax/dev-backup",
@@ -22,6 +28,12 @@ const miniProjects = [
 
 const blogPosts = [
   {
+  title: "Karpathy Taught Me Micrograd, So I Made It Move",
+  link: "https://blog.siddharththakkar.xyz/blog-13",
+  pubDate: "2026-04-07",
+  description: "Building an interactive visualizer for Andrej Karpathy's micrograd engine — computation graphs, backprop, and a live training loop, all in vanilla JS."
+},
+  {
     title: "Maybe the gatekeepers were right",
     link: "https://blog.siddharththakkar.xyz/blog-12",
     pubDate: "2026-03-04",
@@ -32,12 +44,6 @@ const blogPosts = [
     link: "https://blog.siddharththakkar.xyz/blog-11",
     pubDate: "2026-02-25",
     description: "How I got into backends in Python using FastAPI, JWT, and SQLAlchemy"
-  },
-  {
-    title: "Redis, WebSockets, and Why Microservices Don't Actually Suck ",
-    link: "https://blog.siddharththakkar.xyz/blog-10",
-    pubDate: "2026-01-18",
-    description: "How I went under the rabbit-hole of Microservices"
   }
 ]
 
