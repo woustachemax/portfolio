@@ -7,9 +7,9 @@ import TechIcons from "./TechIcons"
 const miniProjects = [
   {
   title: "micrograd viz",
-  description: "Interactive browser-based visualizer on top of Andrej Karpathy's micrograd engine. Ports the full Value, Neuron, Layer, and MLP classes to JS — covers computation graphs, single neuron backprop, MLP architecture with weight visualization, and a live training loop on concentric rings.",
+  description: "Ported Karpathy's micrograd engine to JS and built an interactive visualizer covering computation graphs, single neuron backprop, a full MLP with weight magnitude and sign on the edges, and a live training loop on concentric rings.",
   link: "https://woustachemax.github.io/micrograd-viz/",
-  tags: ["JavaScript", "HTML", "CSS"],
+  tags: ["JavaScript", "Python"],
 },
   {
     title: "DevBackup",
@@ -31,7 +31,7 @@ const blogPosts = [
   title: "Karpathy Taught Me Micrograd, So I Made It Move",
   link: "https://blog.siddharththakkar.xyz/blog-13",
   pubDate: "2026-04-07",
-  description: "Building an interactive visualizer for Andrej Karpathy's micrograd engine — computation graphs, backprop, and a live training loop, all in vanilla JS."
+  description: "3Blue1Brown infected me, Karpathy's video was good but I needed it to move, so I spent a few hours building the thing I wanted to watch."
 },
   {
     title: "Maybe the gatekeepers were right",
