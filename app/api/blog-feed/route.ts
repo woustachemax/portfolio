@@ -1,39 +1,20 @@
 import { NextResponse } from 'next/server'
 
+export const revalidate = 3600 
+
 export async function GET() {
   try {
-    const response = await fetch('https://blog.siddharththakkar.xyz/rss.xml', {
-      headers: {
-        'User-Agent': 'Mozilla/5.0',
-      },
-      cache: 'no-store',
+    const res = await fetch('https://blog.siddharththakkar.xyz/api/portfolio', {
+      next: { revalidate: 3600 },
     })
 
-    if (!response.ok) {
-      console.error('RSS fetch failed:', response.status, response.statusText)
+    if (!res.ok) {
+      console.error('Blog API fetch failed:', res.status, res.statusText)
       return NextResponse.json([], { status: 200 })
     }
 
-    const text = await response.text()
-    const items = text.match(/<item>[\s\S]*?<\/item>/g) || []
-    
-    const posts = items.slice(0, 3).map(item => {
-      const title = item.match(/<title><!\[CDATA\[(.*?)\]\]><\/title>/)?.[1] || 
-                    item.match(/<title>(.*?)<\/title>/)?.[1] || 'Untitled'
-      
-      const link = item.match(/<link>(.*?)<\/link>/)?.[1] || '#'
-      const pubDate = item.match(/<pubDate>(.*?)<\/pubDate>/)?.[1] || ''
-      
-      const description = item.match(/<description><!\[CDATA\[(.*?)\]\]><\/description>/)?.[1] ||
-                         item.match(/<description>(.*?)<\/description>/)?.[1] || ''
-      
-      return {
-        title: title.trim(),
-        link: link.trim(),
-        pubDate: pubDate.trim(),
-        description: description.trim().substring(0, 150) + '...'
-      }
-    })
+    const data = await res.json()
+    const posts = Array.isArray(data.blogPosts) ? data.blogPosts : []
 
     return NextResponse.json(posts)
   } catch (error) {

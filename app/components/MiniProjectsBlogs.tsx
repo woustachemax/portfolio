@@ -1,16 +1,17 @@
 "use client"
 
+import { useEffect, useState } from "react"
 import { Card } from "@/components/ui/card"
 import { ExternalLink, Calendar } from "lucide-react"
 import TechIcons from "./TechIcons"
 
 const miniProjects = [
   {
-  title: "micrograd viz",
-  description: "Ported Karpathy's micrograd engine to JS and built an interactive visualizer covering computation graphs, single neuron backprop, a full MLP with weight magnitude and sign on the edges, and a live training loop on concentric rings.",
-  link: "https://woustachemax.github.io/micrograd-viz/",
-  tags: ["JavaScript", "Python"],
-},
+    title: "micrograd viz",
+    description: "Ported Karpathy's micrograd engine to JS and built an interactive visualizer covering computation graphs, single neuron backprop, a full MLP with weight magnitude and sign on the edges, and a live training loop on concentric rings.",
+    link: "https://woustachemax.github.io/micrograd-viz/",
+    tags: ["JavaScript", "Python"],
+  },
   {
     title: "DevBackup",
     description: "Cross-platform bash tool to backup and restore dev environments across computers",
@@ -23,38 +24,48 @@ const miniProjects = [
       "Built a real-time collaboration platform enabling over 50 users to work on shared projects and communicate instantly, with secure backend and responsive design.",
     link: "https://github.com/woustachemax/sinkronize",
     tags: ["Next.js", "Express.js", "PostgreSQL", "Prisma", "Tailwind CSS", "Socket.io", "Authentication"],
-  }
+  },
 ]
 
-const blogPosts = [
-  {
-  title: "Karpathy Taught Me Micrograd, So I Made It Move",
-  link: "https://blog.siddharththakkar.xyz/blog-13",
-  pubDate: "2026-04-03",
-  description: "3Blue1Brown infected me, Karpathy's video was good but I needed it to move, so I spent a few hours building the thing I wanted to watch."
-},
-  {
-    title: "Maybe the gatekeepers were right",
-    link: "https://blog.siddharththakkar.xyz/blog-12",
-    pubDate: "2026-03-04",
-    description: "Lower-level knowledge is quietly becoming the most underrated skill in the AI era."
-  },
-  {
-    title: "FastAPI, JWT, and SQLAlchemy: Building APIs That Don't Break ",
-    link: "https://blog.siddharththakkar.xyz/blog-11",
-    pubDate: "2026-02-25",
-    description: "How I got into backends in Python using FastAPI, JWT, and SQLAlchemy"
-  }
-]
+interface BlogPost {
+  title: string
+  link: string
+  pubDate: string | null
+  description: string
+}
+
+function BlogPostSkeleton() {
+  return (
+    <Card className="bg-stone-900/20 border border-stone-800/50 backdrop-blur-sm p-5 animate-pulse">
+      <div className="h-4 bg-stone-700/40 rounded w-3/4 mb-3" />
+      <div className="h-3 bg-stone-700/30 rounded w-full mb-2" />
+      <div className="h-3 bg-stone-700/30 rounded w-5/6 mb-4" />
+      <div className="h-3 bg-stone-700/20 rounded w-24" />
+    </Card>
+  )
+}
 
 export default function MiniProjectsBlog() {
+  const [blogPosts, setBlogPosts] = useState<BlogPost[]>([])
+  const [loading, setLoading] = useState(true)
 
-  const formatDate = (dateString: string) => {
+  useEffect(() => {
+    fetch("/api/blog-feed")
+      .then((r) => r.json())
+      .then((data: BlogPost[]) => {
+        setBlogPosts(Array.isArray(data) ? data : [])
+      })
+      .catch(() => setBlogPosts([]))
+      .finally(() => setLoading(false))
+  }, [])
+
+  const formatDate = (dateString: string | null) => {
+    if (!dateString) return ""
     const date = new Date(dateString)
-    return date.toLocaleDateString('en-US', {
-      month: 'short',
-      day: 'numeric',
-      year: 'numeric'
+    return date.toLocaleDateString("en-US", {
+      month: "short",
+      day: "numeric",
+      year: "numeric",
     })
   }
 
@@ -96,33 +107,45 @@ export default function MiniProjectsBlog() {
         <div>
           <h3 className="text-2xl text-blue-200/70 font-semibold mb-4">Latest Blog Posts</h3>
           <div className="space-y-4">
-            {blogPosts.map((post, index) => (
-              <Card
-                key={index}
-                className="bg-stone-900/20 border border-stone-800/50 hover:border-stone-700 hover:scale-[1.01] transition-all duration-300 backdrop-blur-sm p-5"
-              >
-                <a
-                  href={post.link}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="block"
+            {loading ? (
+              <>
+                <BlogPostSkeleton />
+                <BlogPostSkeleton />
+                <BlogPostSkeleton />
+              </>
+            ) : blogPosts.length === 0 ? (
+              <p className="text-gray-500 text-sm">No posts available right now.</p>
+            ) : (
+              blogPosts.map((post, index) => (
+                <Card
+                  key={index}
+                  className="bg-stone-900/20 border border-stone-800/50 hover:border-stone-700 hover:scale-[1.01] transition-all duration-300 backdrop-blur-sm p-5"
                 >
-                  <div className="flex items-start justify-between mb-2">
-                    <h4 className="text-blue-100 font-semibold group-hover:text-blue-300 transition-colors">
-                      {post.title}
-                    </h4>
-                    <ExternalLink className="w-4 h-4 text-gray-400 hover:text-blue-300 flex-shrink-0 ml-2" />
-                  </div>
-                  <p className="text-gray-400 text-sm mb-2 line-clamp-2">
-                    {post.description}
-                  </p>
-                  <div className="flex items-center text-xs text-gray-500">
-                    <Calendar className="w-3 h-3 mr-1" />
-                    {formatDate(post.pubDate)}
-                  </div>
-                </a>
-              </Card>
-            ))}
+                  <a
+                    href={post.link}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="block"
+                  >
+                    <div className="flex items-start justify-between mb-2">
+                      <h4 className="text-blue-100 font-semibold group-hover:text-blue-300 transition-colors">
+                        {post.title}
+                      </h4>
+                      <ExternalLink className="w-4 h-4 text-gray-400 hover:text-blue-300 flex-shrink-0 ml-2" />
+                    </div>
+                    <p className="text-gray-400 text-sm mb-2 line-clamp-2">
+                      {post.description}
+                    </p>
+                    {post.pubDate && (
+                      <div className="flex items-center text-xs text-gray-500">
+                        <Calendar className="w-3 h-3 mr-1" />
+                        {formatDate(post.pubDate)}
+                      </div>
+                    )}
+                  </a>
+                </Card>
+              ))
+            )}
           </div>
         </div>
       </div>
