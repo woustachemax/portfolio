@@ -4,13 +4,14 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion"
 import { Github, ExternalLink, YoutubeIcon } from "lucide-react"
 import TechIcons from "./TechIcons"
+import { playClick } from "@/lib/sound"
 
 const projectsData = [
   {
     "title": "GlitchCn/ui",
     "date": "November 2025 - December 2025",
     "association": "Open Source Project",
-    "description": "Built a retro-futuristic React component library for Next.js featuring 15+ production-ready components with terminal-styled aesthetics, animated scanline effects, and cyberpunk design elements.",
+    "description": "A retro-futuristic React component library for Next.js with 15+ terminal-styled components, five built-in color themes, and full dark and light mode, installable through the shadcn/ui CLI.",
     "details": [
       "Built and published open-source React component library with 15+ production-grade components and full TypeScript support; 50+ GitHub stars.",
       "Engineered custom shadcn/ui CLI registry with npm package support for individual or bulk component installs.",
@@ -26,7 +27,7 @@ const projectsData = [
     "title": "QuackStack",
     "date": "October 2025 - November 2025",
     "association": "Open Source Project",
-    "description": "Built an intelligent CLI tool that indexes codebases using local AI embeddings, enabling conversational code exploration and universal context generation for all major AI coding assistants.",
+    "description": "An interactive CLI tool that indexes a codebase with local embeddings and answers questions about it conversationally, with git history tracking and context generation for every major AI coding assistant.",
     "details": [
       "Built and published npm package with TypeScript CLI interface; 3K+ downloads, zero-config setup, incremental re-indexing, and watch mode for always-fresh context.",
       "Engineered 100% local vector embedding pipeline across 15+ languages using AST-based parsing with 87%+ retrieval relevance, with no external API calls for embeddings.",
@@ -41,7 +42,7 @@ const projectsData = [
     "title": "Conv",
     "date": "July 2025 - August 2025",
     "association": "Personal Project",
-    "description": "Built a seamless playlist conversion tool that transfers music collections between Spotify, YouTube Music, and Apple Music with intelligent track matching and real-time sync capabilities.",
+    "description": "A playlist conversion tool for Spotify, YouTube Music, and Apple Music, with an exact match mode using fuzzy track matching and a sign in free mode that finds an existing similar playlist on the target platform.",
     "details": [
       "Developed advanced track matching algorithms using fuzzy string matching and similarity scoring for 85%+ accuracy.",
       "Integrated OAuth 2.0 authentication for secure access to Spotify, YouTube, and Apple Music APIs.",
@@ -58,7 +59,7 @@ const projectsData = [
     "title": "Episteme",
     "date": "July 2025",
     "association": "Personal Project",
-    "description": "Built a full-stack Wikipedia search and bias analysis platform that surfaces how articles are written, not just what they say, with community-driven editorial workflows and local AI-powered fact-checking.",
+    "description": "A Wikipedia research tool that cross references articles against independently scraped sources, surfaces where they disagree, and seeds an AI persona debate on each disagreement that signed in users can reply into.",
     "details": [
       "Engineered local bias analysis engine scoring articles across positive, negative, opinion, and absolutist language patterns with a confidence score and tiered alert system (Moderate, High, Critical).",
       "Built community suggestion system with text-selection based edit submissions, voting and approval workflows, and direct Wikipedia submission queue with admin oversight.",
@@ -90,19 +91,19 @@ const projectsData = [
 export default function Projects() {
   return (
     <section id="projects" className="my-32 max-w-6xl mx-auto px-4">
-      <h2 className="text-4xl font-bold mb-8 text-gray-500">Projects</h2>
+      <h2 className="text-4xl font-bold mb-8 text-shine-section">Projects</h2>
       <div className="grid md:grid-cols-2 gap-6">
         {projectsData.map((project, index) => (
           <Accordion key={index} type="single" collapsible className="w-full">
             <AccordionItem value={`project-${index}`} className="border-none">
-              <Card className="bg-stone-900/20 border border-stone-800/50 hover:border-stone-700 hover:scale-[1.01] transition-all duration-300 backdrop-blur-sm">
+              <Card className="hover-glow bg-white dark:bg-stone-900/20 border border-stone-200 dark:border-stone-800/50 hover:border-stone-400 dark:hover:border-stone-700 hover:scale-[1.01] transition-all duration-300 backdrop-blur-sm">
                 <div className="px-6 pt-4">
                   <CardHeader className="p-0 w-full">
-                    <CardTitle className="text-blue-100 text-lg font-semibold text-left flex justify-between items-start">
-                      {project.title}
+                    <CardTitle className="text-lg font-semibold text-left flex justify-between items-start">
+                      <span className="text-stone-900 dark:text-white">{project.title}</span>
                       <TechIcons skills={project.skills} colored={true} className="scale-75 origin-top-right ml-2" />
                     </CardTitle>
-                    <div className="flex justify-between text-xs text-gray-400 mt-1">
+                    <div className="flex justify-between text-xs text-stone-500 dark:text-gray-400 mt-1">
                       <span>{project.date}</span>
                       {project.association && <span className="ml-2">{project.association}</span>}
                     </div>
@@ -114,8 +115,8 @@ export default function Projects() {
                         href={project.link}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="text-sm text-blue-100 hover:text-blue-400 flex items-center gap-2"
-                        onClick={(e) => e.stopPropagation()}
+                        className="text-sm text-stone-800 hover:text-black hover:underline underline-offset-2 dark:text-gray-300 dark:hover:text-white flex items-center gap-2"
+                        onClick={(e) => { e.stopPropagation(); playClick() }}
                       >
                         <Github className="w-4 h-4" />
                         <span className="font-semibold">Github</span>
@@ -126,8 +127,8 @@ export default function Projects() {
                         href={project.live}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="text-sm text-blue-100 hover:text-blue-400 flex items-center gap-2"
-                        onClick={(e) => e.stopPropagation()}
+                        className="text-sm text-stone-800 hover:text-black hover:underline underline-offset-2 dark:text-gray-300 dark:hover:text-white flex items-center gap-2"
+                        onClick={(e) => { e.stopPropagation(); playClick() }}
                       >
                         <ExternalLink className="w-4 h-4" />
                         <span className="font-semibold">Live Demo</span>
@@ -138,8 +139,8 @@ export default function Projects() {
                         href={project.youtube}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="text-sm text-blue-100 hover:text-blue-400 flex items-center gap-2"
-                        onClick={(e) => e.stopPropagation()}
+                        className="text-sm text-stone-800 hover:text-black hover:underline underline-offset-2 dark:text-gray-300 dark:hover:text-white flex items-center gap-2"
+                        onClick={(e) => { e.stopPropagation(); playClick() }}
                       >
                         <YoutubeIcon className="w-4 h-4" />
                         <span className="font-semibold">Press</span>
@@ -148,30 +149,18 @@ export default function Projects() {
                   </div>
                 </div>
 
-                <AccordionTrigger className="px-6 pb-4 text-left w-full no-underline hover:no-underline">
-                  <span className="text-sm font-semibold text-gray-300 group-hover:text-blue-200">View Details</span>
+                <AccordionTrigger onClick={() => playClick()} className="px-6 pb-4 text-left w-full no-underline hover:no-underline">
+                  <span className="text-sm font-semibold text-stone-600 dark:text-gray-300 group-hover:text-black dark:group-hover:text-white">View Details</span>
                 </AccordionTrigger>
 
                 <AccordionContent className="px-6 pb-4">
                   <CardContent className="p-0">
-                    <p className="mb-4 text-blue-100 text-sm">{project.description}</p>
-                    <ul className="list-disc list-inside space-y-1 text-gray-400 mb-4">
+                    <p className="mb-4 text-stone-700 dark:text-gray-300 text-sm">{project.description}</p>
+                    <ul className="list-disc list-inside space-y-1 text-stone-600 dark:text-gray-400 mb-4">
                       {project.details.map((detail, idx) => (
                         <li key={idx} className="text-sm">{detail}</li>
                       ))}
                     </ul>
-                    {/* <div className="mt-4">
-                      <h4 className="font-semibold mb-2 text-blue-100 text-sm">Technologies:</h4>
-                      <div className="flex flex-wrap gap-2">
-                        {project.skills.map((skill, idx) => (
-                          <span key={idx} className="text-xs bg-stone-900/50 text-blue-200/70 border border-stone-800 px-2 py-1 rounded hover:text-white transition-colors duration-200">
-                            {skill}
-                          </span>
-                        ))}
-                      </div>
-                    </div> */}
-
-
                   </CardContent>
                 </AccordionContent>
               </Card>

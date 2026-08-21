@@ -4,6 +4,7 @@ import { useEffect, useState } from "react"
 import { Card } from "@/components/ui/card"
 import { ExternalLink, Calendar } from "lucide-react"
 import TechIcons from "./TechIcons"
+import { playClick } from "@/lib/sound"
 
 const miniProjects = [
   {
@@ -36,11 +37,11 @@ interface BlogPost {
 
 function BlogPostSkeleton() {
   return (
-    <Card className="bg-stone-900/20 border border-stone-800/50 backdrop-blur-sm p-5 animate-pulse">
-      <div className="h-4 bg-stone-700/40 rounded w-3/4 mb-3" />
-      <div className="h-3 bg-stone-700/30 rounded w-full mb-2" />
-      <div className="h-3 bg-stone-700/30 rounded w-5/6 mb-4" />
-      <div className="h-3 bg-stone-700/20 rounded w-24" />
+    <Card className="bg-white dark:bg-stone-900/20 border border-stone-200 dark:border-stone-800/50 backdrop-blur-sm p-5 animate-pulse">
+      <div className="h-4 bg-stone-200 dark:bg-stone-700/40 rounded w-3/4 mb-3" />
+      <div className="h-3 bg-stone-200 dark:bg-stone-700/30 rounded w-full mb-2" />
+      <div className="h-3 bg-stone-200 dark:bg-stone-700/30 rounded w-5/6 mb-4" />
+      <div className="h-3 bg-stone-100 dark:bg-stone-700/20 rounded w-24" />
     </Card>
   )
 }
@@ -71,33 +72,34 @@ export default function MiniProjectsBlog() {
 
   return (
     <section id="mini-projects-blog" className="my-16 max-w-6xl mx-auto px-4">
-      <h2 className="text-4xl text-gray-500 font-bold mb-8">Mini Projects & Blog</h2>
+      <h2 className="text-4xl text-shine-section font-bold mb-8">Mini Projects & Blog</h2>
 
       <div className="grid md:grid-cols-2 gap-6">
         <div>
-          <h3 className="text-2xl text-blue-200/70 font-semibold mb-4">Mini Projects</h3>
+          <h3 className="text-2xl text-stone-800 dark:text-white font-semibold mb-4">Mini Projects</h3>
           <div className="space-y-4">
             {miniProjects.map((project, index) => (
               <Card
                 key={index}
-                className="bg-stone-900/10 border border-stone-800/50 hover:border-stone-700 hover:scale-[1.01] transition-all duration-300 backdrop-blur-sm p-5"
+                className="hover-glow bg-white dark:bg-stone-900/10 border border-stone-200 dark:border-stone-800/50 hover:border-stone-400 dark:hover:border-stone-700 hover:scale-[1.01] transition-all duration-300 backdrop-blur-sm p-5"
               >
                 <a
                   href={project.link}
                   target="_blank"
                   rel="noopener noreferrer"
+                  onClick={() => playClick()}
                   className="block"
                 >
                   <div className="flex items-start justify-between mb-2">
-                    <h4 className="text-blue-100 font-semibold text-lg group-hover:text-blue-300 transition-colors">
+                    <h4 className="text-stone-900 dark:text-white font-semibold text-lg group-hover:underline underline-offset-2 transition-colors">
                       {project.title}
                     </h4>
                     <div className="flex items-center gap-3">
                       <TechIcons skills={project.tags} colored={true} className="scale-75 origin-right" />
-                      <ExternalLink className="w-4 h-4 text-gray-400 hover:text-blue-300 flex-shrink-0" />
+                      <ExternalLink className="w-4 h-4 text-stone-400 hover:text-black dark:text-gray-400 dark:hover:text-white flex-shrink-0" />
                     </div>
                   </div>
-                  <p className="text-gray-400 text-sm mb-3">{project.description}</p>
+                  <p className="text-stone-600 dark:text-gray-400 text-sm mb-3">{project.description}</p>
                 </a>
               </Card>
             ))}
@@ -105,7 +107,7 @@ export default function MiniProjectsBlog() {
         </div>
 
         <div>
-          <h3 className="text-2xl text-blue-200/70 font-semibold mb-4">Latest Blog Posts</h3>
+          <h3 className="text-2xl text-stone-800 dark:text-white font-semibold mb-4">Latest Blog Posts</h3>
           <div className="space-y-4">
             {loading ? (
               <>
@@ -114,30 +116,31 @@ export default function MiniProjectsBlog() {
                 <BlogPostSkeleton />
               </>
             ) : blogPosts.length === 0 ? (
-              <p className="text-gray-500 text-sm">No posts available right now.</p>
+              <p className="text-stone-500 dark:text-gray-500 text-sm">No posts available right now.</p>
             ) : (
               blogPosts.map((post, index) => (
                 <Card
                   key={index}
-                  className="bg-stone-900/20 border border-stone-800/50 hover:border-stone-700 hover:scale-[1.01] transition-all duration-300 backdrop-blur-sm p-5"
+                  className="hover-glow bg-white dark:bg-stone-900/20 border border-stone-200 dark:border-stone-800/50 hover:border-stone-400 dark:hover:border-stone-700 hover:scale-[1.01] transition-all duration-300 backdrop-blur-sm p-5"
                 >
                   <a
                     href={post.link}
                     target="_blank"
                     rel="noopener noreferrer"
+                    onClick={() => playClick()}
                     className="block"
                   >
                     <div className="flex items-start justify-between mb-2">
-                      <h4 className="text-blue-100 font-semibold group-hover:text-blue-300 transition-colors">
+                      <h4 className="text-stone-900 dark:text-white font-semibold group-hover:underline underline-offset-2 transition-colors">
                         {post.title}
                       </h4>
-                      <ExternalLink className="w-4 h-4 text-gray-400 hover:text-blue-300 flex-shrink-0 ml-2" />
+                      <ExternalLink className="w-4 h-4 text-stone-400 hover:text-black dark:text-gray-400 dark:hover:text-white flex-shrink-0 ml-2" />
                     </div>
-                    <p className="text-gray-400 text-sm mb-2 line-clamp-2">
+                    <p className="text-stone-600 dark:text-gray-400 text-sm mb-2 line-clamp-2">
                       {post.description}
                     </p>
                     {post.pubDate && (
-                      <div className="flex items-center text-xs text-gray-500">
+                      <div className="flex items-center text-xs text-stone-500 dark:text-gray-500">
                         <Calendar className="w-3 h-3 mr-1" />
                         {formatDate(post.pubDate)}
                       </div>

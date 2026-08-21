@@ -2,6 +2,7 @@
 
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion"
 import { Card } from "@/components/ui/card"
+import { playClick } from "@/lib/sound"
 
 const educationData = [
   {
@@ -33,21 +34,21 @@ const educationData = [
 export default function Education() {
   return (
     <section id="education" className="my-16 max-w-6xl mx-auto px-4">
-      <h2 className="text-4xl text-gray-500 font-bold mb-8">Education</h2>
+      <h2 className="text-4xl text-shine-section font-bold mb-8">Education</h2>
       <Accordion type="single" collapsible className="grid md:grid-cols-2 gap-6">
         {educationData.map((edu, index) => (
           <AccordionItem key={index} value={`item-${index}`} className="border-none">
-            <Card className="bg-stone-900/20 border border-stone-800/50 hover:border-stone-700 hover:scale-[1.01] transition-all duration-300 backdrop-blur-sm">
-              <AccordionTrigger className="px-6 py-4 text-left w-full no-underline hover:no-underline">
+            <Card className="hover-glow bg-white dark:bg-stone-900/20 border border-stone-200 dark:border-stone-800/50 hover:border-stone-400 dark:hover:border-stone-700 hover:scale-[1.01] transition-all duration-300 backdrop-blur-sm">
+              <AccordionTrigger onClick={() => playClick()} className="px-6 py-4 text-left w-full no-underline hover:no-underline">
                 <div>
-                  <h3 className="text-blue-100 font-semibold">{edu.school}</h3>
-                  <p className="text-gray-400">{edu.degree}</p>
-                  <p className="text-sm text-blue-200">{edu.date}</p>
+                  <h3 className="text-stone-900 dark:text-white font-semibold">{edu.school}</h3>
+                  <p className="text-stone-600 dark:text-gray-400">{edu.degree}</p>
+                  <p className="text-sm text-stone-500 dark:text-gray-400">{edu.date}</p>
                 </div>
               </AccordionTrigger>
               <AccordionContent className="px-6 pb-4">
-                <h4 className="text-sm font-semibold text-gray-300 mb-2">Relevant Coursework</h4>
-                <ul className="list-disc list-inside text-gray-400 space-y-1">
+                <h4 className="text-sm font-semibold text-stone-700 dark:text-gray-300 mb-2">Relevant Coursework</h4>
+                <ul className="list-disc list-inside text-stone-600 dark:text-gray-400 space-y-1">
                   {edu.coursework.map((course, i) => <li key={i}>{course}</li>)}
                 </ul>
               </AccordionContent>

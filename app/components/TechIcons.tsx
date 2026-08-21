@@ -51,9 +51,10 @@ const iconMap: Record<string, string> = {
     "expo": "expo",
     "linux": "linux",
     "git": "git",
-    "cpp": "cplusplus",
+    "go": "go",
 }
 
+import { useState, useEffect } from "react"
 import {
     Tooltip,
     TooltipContent,
@@ -61,6 +62,17 @@ import {
     TooltipTrigger,
 } from "@/components/ui/tooltip"
 import * as TooltipPrimitive from "@radix-ui/react-tooltip"
+import { cn } from "@/lib/utils"
+
+const darkIconSlugs = ["next.js", "nextdotjs", "vercel", "express", "express.js", "apple", "apple music api", "bun", "socket.io", "shadcn/ui", "radixui", "figma"]
+
+const lightModeIconUrls: Record<string, string> = Object.fromEntries(
+    darkIconSlugs.map((skill) => [skill, `https://cdn.simpleicons.org/${iconMap[skill] ?? skill}`])
+)
+
+const darkModeIconUrls: Record<string, string> = Object.fromEntries(
+    darkIconSlugs.map((skill) => [skill, `https://cdn.simpleicons.org/${iconMap[skill] ?? skill}/white`])
+)
 
 interface TechIconsProps {
     skills: string[]
@@ -69,7 +81,6 @@ interface TechIconsProps {
     limit?: number
     variant?: "circle" | "square"
     size?: "sm" | "md" | "lg" | "xl"
-    noBorder?: boolean
 }
 
 export default function TechIcons({
@@ -79,8 +90,19 @@ export default function TechIcons({
     limit = 6,
     variant = "circle",
     size = "md",
-    noBorder = false
 }: TechIconsProps) {
+    const [theme, setTheme] = useState<"light" | "dark">("dark")
+
+    useEffect(() => {
+        const root = document.documentElement
+        const syncTheme = () => setTheme(root.classList.contains("light") ? "light" : "dark")
+        syncTheme()
+
+        const observer = new MutationObserver(syncTheme)
+        observer.observe(root, { attributes: true, attributeFilter: ["class"] })
+        return () => observer.disconnect()
+    }, [])
+
     const validSkills = skills
         .map(s => s.toLowerCase())
         .filter(s => iconMap[s])
@@ -95,13 +117,13 @@ export default function TechIcons({
 
     return (
         <TooltipProvider>
-            <div className={`flex items-center ${variant === "circle" ? "-space-x-2" : "gap-4"} ${className}`}>
+            <div className={cn("flex items-center", variant === "circle" ? "-space-x-1" : "gap-4", className)}>
                 {validSkills.map((skill, index) => {
-                    const isDarkIcon = ["next.js", "nextdotjs", "vercel", "express", "express.js", "apple", "apple music api", "bun", "socket.io", "shadcn/ui", "radixui", "figma"].includes(skill)
+                    const isDarkIcon = darkIconSlugs.includes(skill)
                     const iconSlug = iconMap[skill]
 
                     const iconUrl = isDarkIcon && colored
-                        ? `https://cdn.simpleicons.org/${iconSlug}/white`
+                        ? (theme === "light" ? lightModeIconUrls[skill] : darkModeIconUrls[skill])
                         : `https://cdn.simpleicons.org/${iconSlug}${!colored ? "/white" : ""}`
 
                     return (
@@ -113,10 +135,7 @@ export default function TechIcons({
                                 >
                                     <div className={`
                                         ${sizeClasses[size]}
-                                        ${variant === "circle" ? "rounded-full" : "rounded-xl"}
-                                        ${noBorder ? "border-0" : "border border-stone-800"}
-                                        bg-stone-950/40
-                                        flex items-center justify-center transition-all duration-300
+                                        flex items-center justify-center transition-transform duration-300
                                         group-hover:-translate-y-1 group-hover:scale-110 group-hover:z-50
                                         ${colored ? "opacity-100" : "grayscale opacity-70 hover:grayscale-0 hover:opacity-100"}
                                     `}>

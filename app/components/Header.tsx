@@ -1,7 +1,10 @@
 "use client"
 
 import { useState, useEffect } from "react"
-import { Github, Linkedin } from "lucide-react"
+import { Github, Linkedin, FolderGit2, Layers, FileText, Rss } from "lucide-react"
+import { ThemeToggle } from "./ThemeToggle"
+import { playClick } from "@/lib/sound"
+import { cn } from "@/lib/utils"
 
 export default function Header() {
   const [activeSection, setActiveSection] = useState("")
@@ -9,17 +12,15 @@ export default function Header() {
   const [isAtBottom, setIsAtBottom] = useState(false)
 
   const navItems = [
-    { id: "projects", label: "Projects" },
-    { id: "skills", label: "Stack" },
+    { id: "projects", label: "Projects", icon: FolderGit2 },
+    { id: "skills", label: "Stack", icon: Layers },
   ]
 
   const XIcon = () => (
-    <svg viewBox="0 0 24 24" className="w-4 h-4 text-gray-200 hover:text-blue-200" fill="currentColor">
+    <svg viewBox="0 0 24 24" className="w-4 h-4" fill="currentColor">
       <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" />
     </svg>
   )
-
-
 
   const socialItems = [
     { href: "https://www.linkedin.com/in/sidthakkar/", icon: Linkedin, label: "LinkedIn" },
@@ -31,11 +32,16 @@ export default function Header() {
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 20)
 
-      // Check if user is at the bottom of the page
       const windowHeight = window.innerHeight
       const documentHeight = document.documentElement.scrollHeight
       const scrollTop = window.scrollY
-      setIsAtBottom(scrollTop + windowHeight >= documentHeight - 10)
+      const atBottom = scrollTop + windowHeight >= documentHeight - 10
+      setIsAtBottom(atBottom)
+
+      if (atBottom) {
+        setActiveSection(navItems[navItems.length - 1].id)
+        return
+      }
 
       const sections = navItems.map(item => document.getElementById(item.id))
       const scrollPosition = window.scrollY + 100
@@ -58,6 +64,7 @@ export default function Header() {
   }, [])
 
   const scrollToSection = (sectionId: string) => {
+    playClick()
     const section = document.getElementById(sectionId)
     if (section) {
       const yOffset = -80
@@ -67,6 +74,14 @@ export default function Header() {
     }
   }
 
+  const handleLinkClick = (url: string) => {
+    playClick()
+    window.location.href = url
+  }
+
+  const expandingItemClass = "group flex items-center overflow-hidden rounded-full px-2 py-1.5 sm:py-2 transition-all duration-300 ease-out text-stone-600 hover:gap-2 hover:px-3 hover:text-black dark:text-gray-200 dark:hover:text-white"
+  const labelClass = "max-w-0 whitespace-nowrap text-xs sm:text-sm font-medium opacity-0 transition-all duration-300 ease-out group-hover:max-w-[6rem] group-hover:opacity-100"
+
   return (
     <header
       className={`fixed left-1/2 transform -translate-x-1/2 z-50 transition-all duration-500 ease-out`}
@@ -74,55 +89,59 @@ export default function Header() {
     >
       <nav className="px-2">
         <div
-          className={`flex items-center justify-center transition-all duration-500 ${isScrolled
-            ? "bg-stone-900/40 backdrop-blur-xl border border-stone-800 rounded-full py-2 shadow-2xl"
-            : "bg-stone-900/20 backdrop-blur-sm border border-stone-800 rounded-full py-2 shadow-lg"
-            } px-3 w-auto sm:w-auto min-w-[90vw] sm:min-w-0`}
+          className={`flex items-center justify-center transition-all duration-500 border ${isScrolled
+            ? "bg-white/70 dark:bg-stone-900/40 backdrop-blur-xl border-stone-200 dark:border-stone-800 rounded-full py-1.5 shadow-2xl"
+            : "bg-white/40 dark:bg-stone-900/20 backdrop-blur-sm border-stone-200 dark:border-stone-800 rounded-full py-1.5 shadow-lg"
+            } px-2`}
         >
-          <div className="flex items-center justify-center text-xs sm:text-sm gap-1 sm:gap-2">
-            {navItems.map((item, index) => (
-              <div key={item.id} className="flex items-center">
+          <div className="flex items-center gap-0.5 sm:gap-1">
+            {navItems.map((item) => {
+              const isActive = activeSection === item.id
+              return (
                 <button
+                  key={item.id}
                   onClick={() => scrollToSection(item.id)}
-                  className={`px-2 sm:px-4 py-1 sm:py-2 font-medium transition-all duration-300 ease-out text-gray-200 hover:text-blue-200/80 hover:scale-105 ${activeSection === item.id ? "text-blue-200" : ""
-                    }`}
+                  className={cn(expandingItemClass, isActive && "gap-2 px-3 text-black dark:text-white")}
                 >
-                  {item.label}
+                  <item.icon className="w-4 h-4 shrink-0" />
+                  <span className={cn(labelClass, isActive && "max-w-[6rem] opacity-100")}>
+                    {item.label}
+                  </span>
                 </button>
-                {index < navItems.length - 1 && (
-                  <span className="text-gray-400 mx-1 sm:mx-2">|</span>
-                )}
-              </div>
+              )
+            })}
+
+            {socialItems.map((social) => (
+              <a
+                key={social.label}
+                href={social.href}
+                target="_blank"
+                rel="noopener noreferrer"
+                onClick={() => playClick()}
+                className="flex items-center justify-center rounded-full p-2 sm:p-2.5 text-stone-600 hover:text-black hover:scale-110 dark:text-gray-200 dark:hover:text-white transition-all duration-300"
+                aria-label={social.label}
+              >
+                <social.icon className="w-4 h-4" />
+              </a>
             ))}
-            <span className="text-gray-200 mx-1 sm:mx-2">|</span>
-            {socialItems.map((social, index) => (
-              <div key={social.label} className="flex items-center">
-                <a
-                  href={social.href}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="px-2 sm:px-4 py-1 sm:py-2 text-gray-200 hover:text-blue-200 hover:scale-110 transition-all duration-300 flex items-center"
-                  aria-label={social.label}
-                >
-                  <social.icon className="w-4 h-4 sm:w-5 sm:h-5" />
-                </a>
-                {index < socialItems.length - 1 && (
-                  <span className="text-gray-400 mx-1 sm:mx-2">|</span>
-                )}
-              </div>
-            ))}
-            <span className="text-gray-200 mx-1 sm:mx-2">|</span>
-            <div
-              onClick={() => window.location.href = 'https://drive.google.com/file/d/1bGgFJCZaNBg42iJvYiAhsHiy1wguaGqx/view?usp=sharing'}
-              className="px-2 sm:px-4 py-1 sm:py-2 text-gray-200 hover:text-blue-200 hover:scale-110 transition-all duration-300 cursor-pointer">
-              CV
-            </div>
-            <span className="text-gray-200 mx-1 sm:mx-2">|</span>
-            <div
-              onClick={() => window.location.href = 'https://blog.siddharththakkar.xyz/'}
-              className="px-2 sm:px-4 py-1 sm:py-2 text-gray-200 hover:text-blue-200 hover:scale-110 transition-all duration-300 cursor-pointer">
-              Blog
-            </div>
+
+            <button
+              onClick={() => handleLinkClick('https://drive.google.com/file/d/1bGgFJCZaNBg42iJvYiAhsHiy1wguaGqx/view?usp=sharing')}
+              className={expandingItemClass}
+            >
+              <FileText className="w-4 h-4 shrink-0" />
+              <span className={labelClass}>CV</span>
+            </button>
+
+            <button
+              onClick={() => handleLinkClick('https://blog.siddharththakkar.xyz/')}
+              className={expandingItemClass}
+            >
+              <Rss className="w-4 h-4 shrink-0" />
+              <span className={labelClass}>Blog</span>
+            </button>
+
+            <ThemeToggle />
           </div>
         </div>
       </nav>
