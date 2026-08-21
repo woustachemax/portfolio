@@ -16,7 +16,7 @@ export default function Home() {
         <section id="hero" className="flex flex-col space-y-3 sm:space-y-4 text-left">
           <h1 className="text-4xl sm:text-5xl font-bold text-shine">
             Hi, I'm{" "}
-            <span className="relative inline-block">
+            <span className="relative">
               Siddharth
               <span
                 className="absolute -top-3 sm:-top-4 left-full ml-0.5 flex items-center gap-1 text-stone-500 dark:text-gray-400 whitespace-nowrap select-none"
