@@ -34,3 +34,53 @@ export function playClick(volume = 0.05) {
     osc.stop(now + 0.06)
   } catch {}
 }
+
+export function playScroll(volume = 0.02) {
+  if (typeof window === "undefined") return
+
+  try {
+    const ctx = getAudioContext()
+    const now = ctx.currentTime
+
+    const osc = ctx.createOscillator()
+    const gain = ctx.createGain()
+
+    osc.type = "sine"
+    osc.frequency.setValueAtTime(260, now)
+    osc.frequency.exponentialRampToValueAtTime(160, now + 0.12)
+
+    gain.gain.setValueAtTime(volume, now)
+    gain.gain.exponentialRampToValueAtTime(0.0001, now + 0.14)
+
+    osc.connect(gain)
+    gain.connect(ctx.destination)
+
+    osc.start(now)
+    osc.stop(now + 0.15)
+  } catch {}
+}
+
+export function playHover(volume = 0.035) {
+  if (typeof window === "undefined") return
+
+  try {
+    const ctx = getAudioContext()
+    const now = ctx.currentTime
+
+    const osc = ctx.createOscillator()
+    const gain = ctx.createGain()
+
+    osc.type = "sine"
+    osc.frequency.setValueAtTime(500, now)
+    osc.frequency.exponentialRampToValueAtTime(760, now + 0.08)
+
+    gain.gain.setValueAtTime(volume, now)
+    gain.gain.exponentialRampToValueAtTime(0.0001, now + 0.1)
+
+    osc.connect(gain)
+    gain.connect(ctx.destination)
+
+    osc.start(now)
+    osc.stop(now + 0.11)
+  } catch {}
+}

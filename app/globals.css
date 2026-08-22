@@ -118,7 +118,7 @@ html {
 
 @supports (background-clip: text) or (-webkit-background-clip: text) {
   .text-shine {
-    background-image: linear-gradient(135deg, #000000 0%, #000000 30%, #808080 50%, #000000 70%, #000000 100%);
+    background-image: linear-gradient(100deg, #000000 40%, #4d4d4d 50%, #000000 60%);
     -webkit-background-clip: text;
     background-clip: text;
     -webkit-text-fill-color: transparent;
@@ -126,7 +126,7 @@ html {
   }
 
   .dark .text-shine {
-    background-image: linear-gradient(135deg, #ffffff 0%, #ffffff 30%, #4d4d4d 50%, #ffffff 70%, #ffffff 100%);
+    background-image: linear-gradient(100deg, #ffffff 40%, #b3b3b3 50%, #ffffff 60%);
   }
 
   .text-shine-section {

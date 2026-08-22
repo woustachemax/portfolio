@@ -70,21 +70,6 @@ const projectsData = [
     "skills": ["Next.js", "TypeScript", "Python", "PostgreSQL", "Prisma ORM", "Tailwind CSS", "Framer Motion", "Google OAuth"],
     "link": "https://github.com/woustachemax/episteme",
     "live": "https://episteme.siddharththakkar.xyz/"
-  },
-  {
-    title: "Watchman",
-    date: "May 2025",
-    association: "Personal Project",
-    description:
-      "Developed a full-stack uptime monitoring application with alert functionality, secure user authentication, and efficient data handling across multiple apps using Turborepo.",
-    details: [
-      "Implemented secure user authentication with Clerk for protected routes and data privacy",
-      "Built modular frontend, backend, hub, and validator apps using Turborepo for efficient development",
-      "Used Prisma ORM with PostgreSQL for robust uptime tick and validator data storage",
-      "Designed a responsive monitoring dashboard using Next.js and Tailwind CSS",
-    ],
-    skills: ["Next.js", "Express.js", "Prisma", "PostgreSQL", "Tailwind CSS", "Bun", "Turborepo", "OAuth"],
-    link: "https://github.com/woustachemax/watchman"
   }
 ];
 
