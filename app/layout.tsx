@@ -1,5 +1,6 @@
 import "./globals.css"
 import { Inter } from "next/font/google"
+import Cursor from "./components/Cursor"
 import Header from "./components/Header"
 import SpaceBackground from "./components/SpaceBackground"
 import { ThemeProvider } from "./components/ThemeProvider"
@@ -82,6 +83,7 @@ export default function RootLayout({
     <html lang="en" suppressHydrationWarning>
       <body className={`${inter.className} bg-white text-stone-900 dark:bg-black dark:text-white`}>
         <ThemeProvider attribute="class" defaultTheme="dark" enableSystem={false}>
+          <Cursor />
           <SpaceBackground>
             <Header />
             <main className="container mx-auto px-4 py-8">{children}</main>

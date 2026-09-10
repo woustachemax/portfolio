@@ -192,6 +192,70 @@ html {
   animation: twinkle 2.5s infinite;
 }
 
+.cursor-root {
+  position: fixed;
+  left: 0;
+  top: 0;
+  z-index: 2147483647;
+  pointer-events: none;
+  color: #fff;
+  mix-blend-mode: difference;
+  will-change: transform, opacity;
+  transition: opacity 0.25s ease;
+}
+
+html.cursor-on,
+html.cursor-on * {
+  cursor: none !important;
+}
+
+.cursor-rot {
+  position: absolute;
+  left: 0;
+  top: 0;
+  will-change: transform;
+}
+
+.cursor-idle {
+  animation: cursor-idle 2.4s ease-in-out infinite;
+}
+
+.cursor-root.is-hot .cursor-idle {
+  animation-duration: 0.9s;
+}
+
+.cursor-shape {
+  display: block;
+  margin: -12px 0 0 -12px;
+  will-change: transform;
+}
+
+.cursor-shape svg {
+  display: block;
+}
+
+@keyframes cursor-idle {
+  0%,
+  100% {
+    transform: rotate(-7deg) translateX(-1px);
+  }
+  50% {
+    transform: rotate(7deg) translateX(1.5px);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .cursor-idle {
+    animation: none;
+  }
+}
+
+@media (pointer: coarse) {
+  .cursor-root {
+    display: none;
+  }
+}
+
 @media (max-width: 640px) {
   html {
     font-size: 14px;

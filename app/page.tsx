@@ -55,7 +55,7 @@ export default function Home() {
             </span>
           </div>
           <p className="text-stone-600 dark:text-gray-400 text-xs sm:text-sm tracking-wide">
-            I write code that (usually) works, on the web ;)
+            I'm a verb, not a noun.
           </p>
 
           <div
