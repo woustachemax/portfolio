@@ -52,6 +52,9 @@ const iconMap: Record<string, string> = {
     "linux": "linux",
     "git": "git",
     "go": "go",
+    "duckdb": "duckdb",
+    "streamlit": "streamlit",
+    "pydantic": "pydantic",
 }
 
 import { useState, useEffect } from "react"

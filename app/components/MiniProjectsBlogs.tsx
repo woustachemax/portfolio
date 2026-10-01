@@ -20,11 +20,11 @@ const miniProjects = [
     tags: ["Bash", "Typescript"],
   },
   {
-    title: "Sinkronize",
+    title: "Conv",
     description:
-      "Built a real-time collaboration platform enabling over 50 users to work on shared projects and communicate instantly, with secure backend and responsive design.",
-    link: "https://github.com/woustachemax/sinkronize",
-    tags: ["Next.js", "Express.js", "PostgreSQL", "Prisma", "Tailwind CSS", "Socket.io", "Authentication"],
+      "A playlist conversion tool for Spotify, YouTube Music, and Apple Music, with an exact match mode using fuzzy track matching and a sign in free mode that finds an existing similar playlist on the target platform.",
+    link: "https://conv.siddharththakkar.xyz/",
+    tags: ["Next.js", "TypeScript", "Prisma", "PostgreSQL"],
   },
 ]
 

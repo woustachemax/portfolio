@@ -2,11 +2,29 @@
 
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion"
-import { Github, ExternalLink, YoutubeIcon } from "lucide-react"
+import { Github, ExternalLink, YoutubeIcon, PlayCircle } from "lucide-react"
 import TechIcons from "./TechIcons"
 import { playClick } from "@/lib/sound"
 
 const projectsData = [
+  {
+    "title": "Twin",
+    "date": "September 2026",
+    "association": "Hackathon Project",
+    "description": "A local-first AI desktop buddy for macOS that floats in a small widget, chats in one of five personas, and builds a rough picture of your day from your own Mac — reading bank SMS from Messages and events from your calendars into a local DuckDB file, with no server of its own.",
+    "details": [
+      "Built a translucent macOS widget (AppKit + Tk) with a global hotkey toggle, five selectable personas, and a setup flow for pasting and storing an API key in the macOS Keychain.",
+      "Engineered a provider-agnostic LLM client layer supporting Anthropic, OpenAI, Google Gemini, and xAI, sending a single scrubbed request per chat turn directly to the chosen provider.",
+      "Built a local ingestion pipeline (~3,500 lines of Python) that copies and parses the Messages database for bank transaction SMS via regex, and reads calendar events through EventKit, storing everything in a DuckDB file under the user's home directory.",
+      "Implemented regex-based PII redaction (emails, phone numbers, card and government-ID-shaped numbers, addresses) applied to every request before it leaves the device.",
+      "Added document ingestion for PDFs and receipt photos using pypdfium2 text extraction and Donut OCR, plus SEC EDGAR filing lookup with company resolution and excerpt selection.",
+      "Automated the release pipeline with shell scripts for DMG build, codesigning, version sync, and GitHub Releases, and shipped a Streamlit-based local monitor for everything stored in twin.duckdb."
+    ],
+    "skills": ["Python", "DuckDB", "py2app", "PyTorch", "Streamlit", "Pydantic"],
+    "link": "https://github.com/woustachemax/twin",
+    "live": "https://twin.siddharththakkar.xyz/",
+    "demo": "https://twin.siddharththakkar.xyz/demo/demo.mp4"
+  },
   {
     "title": "GlitchCn/ui",
     "date": "November 2025 - December 2025",
@@ -38,22 +56,6 @@ const projectsData = [
     "skills": ["Node.js", "TypeScript", "PostgreSQL", "Prisma ORM", "Bash"],
     "link": "https://github.com/woustachemax/quackstack",
     "live": "https://quackstack.siddharththakkar.xyz/"
-  }, {
-    "title": "Conv",
-    "date": "July 2025 - August 2025",
-    "association": "Personal Project",
-    "description": "A playlist conversion tool for Spotify, YouTube Music, and Apple Music, with an exact match mode using fuzzy track matching and a sign in free mode that finds an existing similar playlist on the target platform.",
-    "details": [
-      "Developed advanced track matching algorithms using fuzzy string matching and similarity scoring for 85%+ accuracy.",
-      "Integrated OAuth 2.0 authentication for secure access to Spotify, YouTube, and Apple Music APIs.",
-      "Built real-time playlist synchronization with progress tracking and detailed conversion reports.",
-      "Implemented smart duplicate detection and batch processing for large playlists (1000+ tracks).",
-      "Created responsive UI with glassmorphism design and smooth animations for optimal user experience.",
-      "Deployed scalable architecture handling 50+ concurrent conversions with efficient rate limiting."
-    ],
-    "skills": ["Next.js", "TypeScript", "OAuth 2.0", "Spotify API", "YouTube API", "Apple Music API", "Prisma ORM", "PostgreSQL", "Tailwind CSS", "Vercel"],
-    "link": "https://github.com/woustachemax/conv",
-    "live": "https://conv.siddharththakkar.xyz/"
   },
   {
     "title": "Episteme",
@@ -129,6 +131,18 @@ export default function Projects() {
                       >
                         <YoutubeIcon className="w-4 h-4" />
                         <span className="font-semibold">Press</span>
+                      </a>
+                    )}
+                    {project.demo && (
+                      <a
+                        href={project.demo}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="text-sm text-stone-800 hover:text-black hover:underline underline-offset-2 dark:text-gray-300 dark:hover:text-white flex items-center gap-2"
+                        onClick={(e) => { e.stopPropagation(); playClick() }}
+                      >
+                        <PlayCircle className="w-4 h-4" />
+                        <span className="font-semibold">Demo</span>
                       </a>
                     )}
                   </div>
