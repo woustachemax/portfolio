@@ -11,14 +11,16 @@ const inter = Inter({ subsets: ["latin"] })
 export const metadata = {
   metadataBase: new URL("https://siddharththakkar.xyz"),
   title: {
-    default: "Siddharth Thakkar",
+    default: "Siddharth Thakkar (woustachemax)",
     template: "%s | Siddharth Thakkar",
   },
   description:
-    "Hi, I'm Siddharth, I love building.",
+    "Siddharth Thakkar, aka woustachemax, is a software engineer who builds open-source tools, AI projects, and full-stack apps. Explore his projects, resume, and writing.",
   keywords: [
     "Siddharth Thakkar",
     "Sid Thakkar",
+    "woustachemax",
+    "woustachemax7",
     "Siddharth Thakkar Portfolio",
     "Sid Thakkar Portfolio",
     "Siddharth Thakkar Developer",
@@ -27,12 +29,24 @@ export const metadata = {
     "Sid Thakkar Software Engineer",
     "Siddharth Thakkar Full Stack",
     "Sid Thakkar Full Stack",
+    "woustachemax GitHub",
+    "woustachemax portfolio",
   ],
   authors: [{ name: "Siddharth Thakkar", url: "https://siddharththakkar.xyz" }],
   creator: "Siddharth Thakkar",
   publisher: "Siddharth Thakkar",
   alternates: {
     canonical: "https://siddharththakkar.xyz",
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+    },
   },
   icons: {
     icon: [
@@ -45,33 +59,42 @@ export const metadata = {
   },
 
   openGraph: {
-    title: "Siddharth Thakkar",
+    title: "Siddharth Thakkar (woustachemax)",
     description:
-      "Hi, I'm Siddharth, I love building.",
+      "Siddharth Thakkar, aka woustachemax, is a software engineer who builds open-source tools, AI projects, and full-stack apps.",
     url: "https://siddharththakkar.xyz",
     siteName: "Siddharth Thakkar",
-    images: [
-      {
-        url: "https://siddharththakkar.xyz/og-image.png",
-        width: 1200,
-        height: 630,
-        alt: "Siddharth Thakkar",
-      },
-    ],
     locale: "en_US",
     type: "website",
   },
 
   twitter: {
     card: "summary_large_image",
-    title: "Siddharth Thakkar",
+    title: "Siddharth Thakkar (woustachemax)",
     description:
-      "Hi, I'm Siddharth, I love building.",
+      "Siddharth Thakkar, aka woustachemax, is a software engineer who builds open-source tools, AI projects, and full-stack apps.",
     creator: "@woustachemax7",
-    images: ["https://siddharththakkar.xyz/og-image.png"],
   },
 
   category: "technology",
+}
+
+const personJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "Person",
+  name: "Siddharth Thakkar",
+  alternateName: "woustachemax",
+  url: "https://siddharththakkar.xyz",
+  image: "https://siddharththakkar.xyz/opengraph-image",
+  jobTitle: "Software Engineer",
+  description:
+    "Siddharth Thakkar, aka woustachemax, is a software engineer who builds open-source tools, AI projects, and full-stack apps.",
+  sameAs: [
+    "https://github.com/woustachemax",
+    "https://www.linkedin.com/in/sidthakkar/",
+    "https://x.com/woustachemax7",
+    "https://blog.siddharththakkar.xyz/",
+  ],
 }
 
 export default function RootLayout({
@@ -81,6 +104,12 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" suppressHydrationWarning>
+      <head>
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(personJsonLd) }}
+        />
+      </head>
       <body className={`${inter.className} bg-white text-stone-900 dark:bg-black dark:text-white`}>
         <ThemeProvider attribute="class" defaultTheme="dark" enableSystem={false}>
           <Cursor />

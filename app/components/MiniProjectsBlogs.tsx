@@ -4,7 +4,6 @@ import { useEffect, useState } from "react"
 import { Card } from "@/components/ui/card"
 import { ExternalLink, Calendar } from "lucide-react"
 import TechIcons from "./TechIcons"
-import { playClick } from "@/lib/sound"
 
 const miniProjects = [
   {
@@ -87,7 +86,6 @@ export default function MiniProjectsBlog() {
                   href={project.link}
                   target="_blank"
                   rel="noopener noreferrer"
-                  onClick={() => playClick()}
                   className="block"
                 >
                   <div className="flex items-start justify-between mb-2">
@@ -127,7 +125,6 @@ export default function MiniProjectsBlog() {
                     href={post.link}
                     target="_blank"
                     rel="noopener noreferrer"
-                    onClick={() => playClick()}
                     className="block"
                   >
                     <div className="flex items-start justify-between mb-2">

@@ -2,7 +2,6 @@
 
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion"
 import { Card } from "@/components/ui/card"
-import { playClick } from "@/lib/sound"
 
 const educationData = [
   {
@@ -39,7 +38,7 @@ export default function Education() {
         {educationData.map((edu, index) => (
           <AccordionItem key={index} value={`item-${index}`} className="border-none">
             <Card className="hover-glow bg-white dark:bg-stone-900/20 border border-stone-200 dark:border-stone-800/50 hover:border-stone-400 dark:hover:border-stone-700 hover:scale-[1.01] transition-all duration-300 backdrop-blur-sm">
-              <AccordionTrigger onClick={() => playClick()} className="px-6 py-4 text-left w-full no-underline hover:no-underline">
+              <AccordionTrigger className="px-6 py-4 text-left w-full no-underline hover:no-underline">
                 <div>
                   <h3 className="text-stone-900 dark:text-white font-semibold">{edu.school}</h3>
                   <p className="text-stone-600 dark:text-gray-400">{edu.degree}</p>

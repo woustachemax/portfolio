@@ -4,14 +4,13 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion"
 import { Github, ExternalLink, YoutubeIcon, PlayCircle } from "lucide-react"
 import TechIcons from "./TechIcons"
-import { playClick } from "@/lib/sound"
 
 const projectsData = [
   {
     "title": "Twin",
     "date": "September 2026",
     "association": "Hackathon Project",
-    "description": "A local-first AI desktop buddy for macOS that floats in a small widget, chats in one of five personas, and builds a rough picture of your day from your own Mac — reading bank SMS from Messages and events from your calendars into a local DuckDB file, with no server of its own.",
+    "description": "A local-first AI desktop buddy for macOS that floats in a small widget, chats in one of five personas, and builds a rough picture of your day from your own Mac. It reads bank SMS from Messages and events from your calendars into a local DuckDB file, with no server of its own.",
     "details": [
       "Built a translucent macOS widget (AppKit + Tk) with a global hotkey toggle, five selectable personas, and a setup flow for pasting and storing an API key in the macOS Keychain.",
       "Engineered a provider-agnostic LLM client layer supporting Anthropic, OpenAI, Google Gemini, and xAI, sending a single scrubbed request per chat turn directly to the chosen provider.",
@@ -103,7 +102,7 @@ export default function Projects() {
                         target="_blank"
                         rel="noopener noreferrer"
                         className="text-sm text-stone-800 hover:text-black hover:underline underline-offset-2 dark:text-gray-300 dark:hover:text-white flex items-center gap-2"
-                        onClick={(e) => { e.stopPropagation(); playClick() }}
+                        onClick={(e) => e.stopPropagation()}
                       >
                         <Github className="w-4 h-4" />
                         <span className="font-semibold">Github</span>
@@ -115,7 +114,7 @@ export default function Projects() {
                         target="_blank"
                         rel="noopener noreferrer"
                         className="text-sm text-stone-800 hover:text-black hover:underline underline-offset-2 dark:text-gray-300 dark:hover:text-white flex items-center gap-2"
-                        onClick={(e) => { e.stopPropagation(); playClick() }}
+                        onClick={(e) => e.stopPropagation()}
                       >
                         <ExternalLink className="w-4 h-4" />
                         <span className="font-semibold">Live Demo</span>
@@ -127,7 +126,7 @@ export default function Projects() {
                         target="_blank"
                         rel="noopener noreferrer"
                         className="text-sm text-stone-800 hover:text-black hover:underline underline-offset-2 dark:text-gray-300 dark:hover:text-white flex items-center gap-2"
-                        onClick={(e) => { e.stopPropagation(); playClick() }}
+                        onClick={(e) => e.stopPropagation()}
                       >
                         <YoutubeIcon className="w-4 h-4" />
                         <span className="font-semibold">Press</span>
@@ -139,7 +138,7 @@ export default function Projects() {
                         target="_blank"
                         rel="noopener noreferrer"
                         className="text-sm text-stone-800 hover:text-black hover:underline underline-offset-2 dark:text-gray-300 dark:hover:text-white flex items-center gap-2"
-                        onClick={(e) => { e.stopPropagation(); playClick() }}
+                        onClick={(e) => e.stopPropagation()}
                       >
                         <PlayCircle className="w-4 h-4" />
                         <span className="font-semibold">Demo</span>
@@ -148,7 +147,7 @@ export default function Projects() {
                   </div>
                 </div>
 
-                <AccordionTrigger onClick={() => playClick()} className="px-6 pb-4 text-left w-full no-underline hover:no-underline">
+                <AccordionTrigger className="px-6 pb-4 text-left w-full no-underline hover:no-underline">
                   <span className="text-sm font-semibold text-stone-600 dark:text-gray-300 group-hover:text-black dark:group-hover:text-white">View Details</span>
                 </AccordionTrigger>
 

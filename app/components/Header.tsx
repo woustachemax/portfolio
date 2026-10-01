@@ -3,7 +3,6 @@
 import { useState, useEffect } from "react"
 import { Github, Linkedin, FolderGit2, Layers, FileText, Rss } from "lucide-react"
 import { ThemeToggle } from "./ThemeToggle"
-import { playClick } from "@/lib/sound"
 import { cn } from "@/lib/utils"
 
 export default function Header() {
@@ -64,7 +63,6 @@ export default function Header() {
   }, [])
 
   const scrollToSection = (sectionId: string) => {
-    playClick()
     const section = document.getElementById(sectionId)
     if (section) {
       const yOffset = -80
@@ -75,7 +73,6 @@ export default function Header() {
   }
 
   const handleLinkClick = (url: string) => {
-    playClick()
     window.location.href = url
   }
 
@@ -117,7 +114,6 @@ export default function Header() {
                 href={social.href}
                 target="_blank"
                 rel="noopener noreferrer"
-                onClick={() => playClick()}
                 className="flex items-center justify-center rounded-full p-2 sm:p-2.5 text-stone-600 hover:text-black hover:scale-110 dark:text-gray-200 dark:hover:text-white transition-all duration-300"
                 aria-label={social.label}
               >

@@ -1,38 +1,14 @@
 "use client"
 
-import { useEffect, useRef } from "react"
 import { Comic_Neue } from "next/font/google"
 import Education from "./components/Education"
 import Skills from "./components/Skills"
 import Projects from "./components/Projects"
 import MiniProjectsBlog from "./components/MiniProjectsBlogs"
-import { playScroll, playHover } from "@/lib/sound"
 
 const comicNeue = Comic_Neue({ subsets: ["latin"], weight: ["700"] })
 
 export default function Home() {
-  const lastY = useRef(0)
-  const lastPlayed = useRef(0)
-
-  useEffect(() => {
-    lastY.current = window.scrollY
-
-    const handleScroll = () => {
-      const y = window.scrollY
-      const now = Date.now()
-
-      if (y > lastY.current && now - lastPlayed.current > 350) {
-        playScroll()
-        lastPlayed.current = now
-      }
-
-      lastY.current = y
-    }
-
-    window.addEventListener("scroll", handleScroll, { passive: true })
-    return () => window.removeEventListener("scroll", handleScroll)
-  }, [])
-
   return (
     <main className="max-w-6xl mx-auto px-4 sm:px-6 py-8 sm:py-12 space-y-12 sm:space-y-20">
 
@@ -59,7 +35,6 @@ export default function Home() {
           </p>
 
           <div
-            onMouseEnter={() => playHover()}
             className="hover-glow bg-white dark:bg-stone-900/20 backdrop-blur-sm border border-stone-200 dark:border-stone-800/50 hover:border-stone-400 dark:hover:border-stone-700 rounded-xl p-3 sm:p-6 transition-all duration-300 mt-2"
           >
             <div className="flex justify-center">
